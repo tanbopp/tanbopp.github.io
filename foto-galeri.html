@@ -1,0 +1,54 @@
+<div>
+  <script
+    type="text/javascript"
+    src="https://unpkg.com/dangerous-html@0.1.11/dist/default/lib.umd.js"
+  ></script>
+  <link href="./foto-galeri.css" rel="stylesheet" />
+  <div class="foto-galeri-container">
+    <div class="foto-galeri-gambar">
+      <div id="gallery" class="foto-galeri-gallery">
+        <img
+          alt="image"
+          src="https://images.unsplash.com/photo-1670272498456-a9f02e3cead9?ixid=Mnw5MTMyMXwxfDF8YWxsfDIxfHx8fHx8Mnx8MTY3ODY4MDY1MA&ixlib=rb-4.0.3&w=300"
+          onclick="openModal()"
+          class="foto-galeri-image"
+        />
+      </div>
+      <div id="modal" class="foto-galeri-modal">
+        <svg id="close" viewBox="0 0 1024 1024" class="foto-galeri-icon">
+          <path
+            d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+          ></path>
+        </svg>
+        <img
+          id="img01"
+          alt="image"
+          src="https://images.unsplash.com/photo-1670272498456-a9f02e3cead9?ixid=Mnw5MTMyMXwxfDF8YWxsfDIxfHx8fHx8Mnx8MTY3ODY4MDY1MA&ixlib=rb-4.0.3&w=300"
+          class="foto-galeri-image1"
+        />
+      </div>
+      <div>
+        <dangerous-html
+          html="<script>
+  var gallery = document.getElementById('gallery');
+  var modal = document.getElementById('modal');
+  var img01 = document.getElementById('img01');
+  var gambar = gallery.getElementsByTagName('img');
+  var close = document.getElementById('close');
+
+  for (var i = 0; i < gambar.length; i++) {
+    gambar[i].addEventListener('click', function() {
+      modal.style.display = 'block';
+      img01.src = this.src;
+    });
+  }
+
+  close.addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
+</script>"
+        ></dangerous-html>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.logo-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.logo-image {
+  width: auto;
+  object-fit: cover;
+}

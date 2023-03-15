@@ -1,0 +1,58 @@
+.verifikasi-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.verifikasi-container1 {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.verifikasi-icon {
+  fill: #00a5ff;
+  width: 23px;
+  height: 23px;
+}
+.verifikasi-container2 {
+  left: 0px;
+  width: 23px;
+  height: 23px;
+  display: none;
+  position: absolute;
+  transition: 1s;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.verifikasi-container2:hover {
+  display: block;
+}
+.verifikasi-container3 {
+  flex: 0 0 auto;
+  left: 20px;
+  width: auto;
+  height: auto;
+  display: flex;
+  padding: 3px;
+  position: absolute;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: center;
+  background-color: #464646;
+}
+.verifikasi-text {
+  color: var(--dl-color-gray-white);
+  width: auto;
+  font-size: 12px;
+  text-align: left;
+  border-radius: 10px;
+}
+.verifikasi-root-class-name {
+  margin-left: 3px;
+}

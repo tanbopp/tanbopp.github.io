@@ -1,0 +1,28 @@
+.list-galeri-container {
+  width: 70%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.list-galeri-image {
+  width: 100%;
+  box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+.list-galeri-root-class-name {
+  width: 30%;
+}
+.list-galeri-root-class-name1 {
+  width: 30%;
+}
+.list-galeri-root-class-name2 {
+  width: 30%;
+}
+.list-galeri-root-class-name3 {
+  width: 30%;
+}
+
+

@@ -1,0 +1,816 @@
+.footer-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer-sosial-section {
+  color: #718090;
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  padding-top: 25px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 25px;
+  justify-content: space-between;
+  background-image: linear-gradient(135deg, rgb(0, 24, 85) 0.00%,rgb(0, 18, 65) 100.00%);
+}
+.footer-text {
+  color: var(--dl-color-gray-white);
+  font-size: 26px;
+  align-self: center;
+  font-style: normal;
+  text-align: center;
+  font-weight: 300;
+}
+.footer-link {
+  color: var(--dl-color-gray-white);
+  cursor: pointer;
+  font-size: 18px;
+  align-self: center;
+  font-style: normal;
+  transition: 0.3s;
+  font-weight: 300;
+  padding-top: 15px;
+  padding-left: 25px;
+  border-radius: 30px;
+  padding-right: 25px;
+  padding-bottom: 15px;
+  text-transform: capitalize;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.footer-link:active {
+  box-shadow: 0px 0px 3px 3px #002f50;
+}
+.footer-footer {
+  color: #718090;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: var(--dl-space-space-twounits);
+  padding-left: var(--dl-space-space-threeunits);
+  padding-right: var(--dl-space-space-threeunits);
+  flex-direction: column;
+  padding-bottom: var(--dl-space-space-twounits);
+  justify-content: space-between;
+  background-color: #17172d;
+}
+.footer-container1 {
+  display: flex;
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer-image {
+  height: 8rem;
+}
+.footer-nav {
+  flex: 0 0 auto;
+  display: flex;
+  margin-top: 0px;
+  align-items: center;
+  flex-direction: row;
+}
+.footer-navlink {
+  cursor: pointer;
+  margin-left: 0px;
+  text-decoration: none;
+}
+.footer-navlink1 {
+  cursor: pointer;
+  margin-left: var(--dl-space-space-unit);
+  text-decoration: none;
+}
+.footer-text3 {
+  cursor: pointer;
+  margin-left: var(--dl-space-space-unit);
+}
+.footer-text4 {
+  cursor: pointer;
+  margin-left: var(--dl-space-space-unit);
+}
+.footer-footer-bottom {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #03031b;
+}
+.footer-text5 {
+  color: rgb(100, 100, 112);
+  text-align: center;
+}
+
+@media(max-width: 767px) {
+  .footer-sosial-section {
+    gap: 15px;
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+    flex-direction: column;
+    justify-content: center;
+  }
+  .footer-link {
+    font-size: 23px;
+    align-self: center;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .footer-footer {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .footer-image {
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  }
+  .footer-footer-bottom {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .footer-text5 {
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  }
+}
+@media(max-width: 479px) {
+  .footer-sosial-section {
+    padding: var(--dl-space-space-unit);
+  }
+  .footer-text {
+    width: 100%;
+  }
+  .footer-link {
+    box-sizing: border-box;
+  }
+  .footer-footer {
+    padding: var(--dl-space-space-unit);
+  }
+  .footer-footer-bottom {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .footer-text5 {
+    text-align: center;
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  }
+}
+
+.tentang-kami-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.tentang-kami-navbar {
+  top: 0px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  z-index: 100;
+  position: fixed;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  justify-content: space-between;
+  background-color: var(--dl-color-gray-white);
+}
+.tentang-kami-logo {
+  flex: 0 0 auto;
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex-direction: column;
+  justify-content: center;
+}
+.tentang-kami-image {
+  width: 130px;
+  height: auto;
+  object-fit: cover;
+}
+.tentang-kami-menu-list {
+  flex: 0 0 auto;
+  width: auto;
+  height: 100%;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+}
+.tentang-kami-navlink {
+  display: contents;
+}
+.tentang-kami-beranda {
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-right: 5px;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+}
+.tentang-kami-text {
+  height: 100%;
+  transition: 0.3s;
+}
+.tentang-kami-text:active {
+  color: var(--dl-color-primary-100);
+  font-weight: bold;
+}
+.tentang-kami-text01 {
+  color: var(--dl-color-gray-black);
+  font-style: normal;
+  text-align: center;
+  font-weight: 500;
+}
+.tentang-kami-border-animation {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  transition: 0.2s;
+  border-color: #001241;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 0px;
+}
+.tentang-kami-border-animation:hover {
+  border-bottom-width: 6px;
+}
+.tentang-kami-navlink1 {
+  display: contents;
+}
+.tentang-kami-tentang-kami {
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-right: 5px;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+}
+.tentang-kami-text04 {
+  height: 100%;
+  transition: 0.3s;
+}
+.tentang-kami-text04:active {
+  color: var(--dl-color-primary-100);
+  font-weight: bold;
+}
+.tentang-kami-text05 {
+  color: var(--dl-color-gray-black);
+  font-style: normal;
+  text-align: center;
+  font-weight: 500;
+}
+.tentang-kami-border-animation1 {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  border-color: #001241;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 6px;
+}
+.tentang-kami-galeri {
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-right: 5px;
+  flex-direction: column;
+  justify-content: center;
+}
+.tentang-kami-text08 {
+  height: 100%;
+  transition: 0.3s;
+}
+.tentang-kami-text08:active {
+  color: var(--dl-color-primary-100);
+  font-weight: bold;
+}
+.tentang-kami-text09 {
+  color: var(--dl-color-gray-black);
+  font-style: normal;
+  text-align: center;
+  font-weight: 500;
+}
+.tentang-kami-border-animation2 {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  transition: 0.2s;
+  border-color: #001241;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 0px;
+}
+.tentang-kami-border-animation2:hover {
+  border-bottom-width: 6px;
+}
+.tentang-kami-berita {
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-right: 5px;
+  flex-direction: column;
+  justify-content: center;
+}
+.tentang-kami-text12 {
+  height: 100%;
+  transition: 0.3s;
+}
+.tentang-kami-text12:active {
+  color: var(--dl-color-primary-100);
+  font-weight: bold;
+}
+.tentang-kami-text13 {
+  color: var(--dl-color-gray-black);
+  font-style: normal;
+  text-align: center;
+  font-weight: 500;
+}
+.tentang-kami-border-animation3 {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  transition: 0.2s;
+  border-color: #001241;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 0px;
+}
+.tentang-kami-border-animation3:hover {
+  border-bottom-width: 6px;
+}
+.tentang-kami-contact {
+  gap: 25px;
+  flex: 0 0 auto;
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex-direction: row;
+  justify-content: center;
+}
+.tentang-kami-link {
+  display: contents;
+}
+.tentang-kami-instagram {
+  fill: #ffc800;
+  flex: 0 0 auto;
+  width: auto;
+  cursor: pointer;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  padding-left: 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+}
+.tentang-kami-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tentang-kami-icon01 {
+  width: 35px;
+  height: auto;
+}
+.tentang-kami-container01 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tentang-kami-text16 {
+  font-size: 13px;
+  align-self: flex-start;
+  margin-bottom: 5px;
+}
+.tentang-kami-text17 {
+  opacity: 70%;
+  font-size: 13px;
+  align-self: flex-start;
+}
+.tentang-kami-email {
+  fill: #ffc800;
+  flex: 0 0 auto;
+  width: auto;
+  cursor: pointer;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tentang-kami-icon03 {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tentang-kami-icon04 {
+  width: 35px;
+}
+.tentang-kami-container02 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tentang-kami-text18 {
+  color: blue;
+  font-size: 13px;
+  align-self: flex-start;
+  margin-bottom: 5px;
+}
+.tentang-kami-text19 {
+  opacity: 70%;
+  font-size: 13px;
+  align-self: flex-start;
+}
+.tentang-kami-hero {
+  width: 100%;
+  display: flex;
+  min-height: 65vh;
+  align-items: center;
+  padding-top: 10vh;
+  padding-left: var(--dl-space-space-threeunits);
+  padding-right: var(--dl-space-space-threeunits);
+  flex-direction: column;
+  padding-bottom: var(--dl-space-space-threeunits);
+  background-size: cover;
+  justify-content: center;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0.00%,rgba(0, 15, 51, 0.7) 100.00%),url("public/playground_assets/pastedimage-4cck-1500h.png");
+  background-position: top;
+}
+.tentang-kami-text20 {
+  color: var(--dl-color-gray-white);
+  font-size: 3rem;
+  max-width: 450px;
+  margin-top: var(--dl-space-space-twounits);
+  text-align: center;
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.tentang-kami-profil {
+  gap: 50px;
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  padding-top: 50px;
+  padding-left: 100px;
+  margin-bottom: 50px;
+  padding-right: 100px;
+  flex-direction: row;
+  padding-bottom: 50px;
+  justify-content: center;
+}
+.tentang-kami-container03 {
+  gap: 15px;
+  width: auto;
+  height: auto;
+  display: flex;
+  max-width: 500px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.tentang-kami-text21 {
+  font-size: 40px;
+  align-self: flex-start;
+  font-style: normal;
+  text-align: left;
+  font-weight: 200;
+}
+.tentang-kami-container04 {
+  gap: 50px;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+}
+.tentang-kami-image1 {
+  width: 400px;
+  object-fit: cover;
+}
+.tentang-kami-analisis {
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  padding-top: 50px;
+  padding-left: 100px;
+  margin-bottom: 50px;
+  padding-right: 100px;
+  flex-direction: row;
+  padding-bottom: 50px;
+  justify-content: space-between;
+  background-image: linear-gradient(135deg, rgb(0, 24, 85) 0.00%,rgb(0, 18, 65) 100.00%);
+}
+.tentang-kami-container05 {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  flex-direction: row;
+  justify-content: center;
+}
+.tentang-kami-icon06 {
+  fill: #ffd100;
+  width: 150px;
+  height: 150px;
+}
+.tentang-kami-text23 {
+  color: #ffd100;
+  font-size: 110px;
+  font-style: normal;
+  font-weight: 200;
+}
+.tentang-kami-container06 {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  flex-direction: row;
+  justify-content: center;
+}
+.tentang-kami-icon08 {
+  fill: #ffd100;
+  width: 150px;
+  height: 150px;
+}
+.tentang-kami-text24 {
+  color: rgb(255, 209, 0);
+  font-size: 110px;
+  font-style: normal;
+  font-weight: 200;
+}
+.tentang-kami-container07 {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  flex-direction: row;
+  justify-content: center;
+}
+.tentang-kami-icon11 {
+  fill: #ffd100;
+  width: 150px;
+  height: 150px;
+}
+.tentang-kami-text25 {
+  color: rgb(255, 209, 0);
+  font-size: 110px;
+  font-style: normal;
+  font-weight: 200;
+}
+.tentang-kami-sec {
+  gap: 100px;
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  padding-top: 50px;
+  padding-left: 100px;
+  margin-bottom: 50px;
+  padding-right: 100px;
+  flex-direction: column;
+  padding-bottom: 50px;
+  justify-content: center;
+}
+.tentang-kami-text26 {
+  color: black;
+  font-size: 1.7rem;
+  font-style: normal;
+  text-align: center;
+  font-weight: 700;
+}
+.tentang-kami-container08 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tentang-kami-container09 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.tentang-kami-text27 {
+  font-style: normal;
+  font-weight: 500;
+}
+.tentang-kami-navlink2 {
+  color: var(--dl-color-gray-white);
+  cursor: pointer;
+  font-size: 18px;
+  align-self: flex-start;
+  font-style: normal;
+  margin-top: 25px;
+  transition: 0.3s;
+  font-weight: 300;
+  padding-top: 15px;
+  padding-left: 25px;
+  border-radius: 30px;
+  padding-right: 25px;
+  padding-bottom: 15px;
+  text-transform: capitalize;
+  text-decoration: none;
+  background-color: rgb(0, 18, 65);
+}
+.tentang-kami-navlink2:active {
+  box-shadow: 0px 0px 3px 3px #002f50;
+}
+.tentang-kami-script {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+@media(max-width: 767px) {
+  .tentang-kami-navbar {
+    height: auto;
+    flex-direction: column;
+  }
+  .tentang-kami-text {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .tentang-kami-border-animation {
+    display: none;
+  }
+  .tentang-kami-text04 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .tentang-kami-border-animation1 {
+    display: none;
+  }
+  .tentang-kami-text08 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .tentang-kami-border-animation2 {
+    display: none;
+  }
+  .tentang-kami-text12 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .tentang-kami-border-animation3 {
+    display: none;
+  }
+  .tentang-kami-contact {
+    display: none;
+  }
+  .tentang-kami-hero {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .tentang-kami-profil {
+    padding-left: 25px;
+    padding-right: 25px;
+    flex-direction: column;
+  }
+  .tentang-kami-container03 {
+    max-width: none;
+  }
+  .tentang-kami-container04 {
+    display: none;
+  }
+  .tentang-kami-analisis {
+    padding-left: 25px;
+    padding-right: 25px;
+    flex-direction: column;
+  }
+  .tentang-kami-sec {
+    padding-left: 25px;
+    padding-right: 25px;
+    flex-direction: column;
+  }
+  .tentang-kami-navlink2 {
+    font-size: 23px;
+    align-self: center;
+    box-sizing: border-box;
+    text-align: center;
+    user-select: none;
+  }
+}
+@media(max-width: 479px) {
+  .tentang-kami-navbar {
+    height: auto;
+    flex-direction: column;
+  }
+  .tentang-kami-image {
+    width: 100px;
+  }
+  .tentang-kami-text {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .tentang-kami-border-animation {
+    display: none;
+  }
+  .tentang-kami-text04 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .tentang-kami-border-animation1 {
+    display: none;
+  }
+  .tentang-kami-text08 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .tentang-kami-border-animation2 {
+    display: none;
+  }
+  .tentang-kami-text12 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .tentang-kami-border-animation3 {
+    display: none;
+  }
+  .tentang-kami-contact {
+    display: none;
+  }
+  .tentang-kami-hero {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .tentang-kami-profil {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .tentang-kami-analisis {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .tentang-kami-sec {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .tentang-kami-navlink2 {
+    box-sizing: border-box;
+    user-select: none;
+  }
+}

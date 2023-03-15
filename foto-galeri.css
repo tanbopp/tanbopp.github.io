@@ -1,0 +1,56 @@
+.foto-galeri-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.foto-galeri-gambar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.foto-galeri-gallery {
+  width: 300px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.foto-galeri-image {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  object-fit: cover;
+}
+.foto-galeri-modal {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 999;
+  overflow: auto;
+  position: fixed;
+  padding-top: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.foto-galeri-icon {
+  top: 10px;
+  fill: var(--dl-color-gray-white);
+  right: 25px;
+  width: 35px;
+  cursor: pointer;
+  position: absolute;
+}
+.foto-galeri-image1 {
+  width: 750px;
+  height: auto;
+  margin: auto;
+  display: block;
+  max-width: 900px;
+  object-fit: cover;
+}

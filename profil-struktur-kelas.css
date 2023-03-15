@@ -1,0 +1,76 @@
+.profil-struktur-kelas-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.profil-struktur-kelas-profil {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.profil-struktur-kelas-foto {
+  cursor: pointer;
+  display: flex;
+  transition: 0.8s ease;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.profil-struktur-kelas-foto:hover {
+  transform: scale(1.08);
+}
+.profil-struktur-kelas-foto-profil {
+  width: 150px;
+  height: 150px;
+  align-self: center;
+  object-fit: cover;
+  border-color: #001241;
+  border-width: 5px;
+  border-radius: 50%;
+}
+.profil-struktur-kelas-title {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  margin: 5px;
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.profil-struktur-kelas-nama {
+  color: var(--dl-color-gray-black);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.profil-struktur-kelas-nama1 {
+  color: var(--dl-color-gray-700);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+
+
+

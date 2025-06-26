@@ -1,122 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Tanbopp</title>
-    <meta property="og:title" content="Basic Surprised Goldfinch" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tanbopp Portfolio</title>
+	<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
 
-    <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
+	<!-- Tailwindcss CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+	    tailwind.config = {
+	      theme: {
+	        extend: {
+	          colors: {
+	            primary: '#128AEB'
+	          }
+	        }
+	      }
+	    }
+	  </script>
 
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
+	<!-- AOS Animation CSS -->
+	<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-  </head>
-  <body>
-    <link rel="stylesheet" href="./style.css" />
-    <div>
-      <link href="./index.css" rel="stylesheet" />
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-      <div class="home-container">
-        <div class="home-container1">
-          <img
-            alt="image"
-            src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fGNhcnRvb258ZW58MHx8fHwxNjk3NTIyODg2fDA&amp;ixlib=rb-4.0.3&amp;w=200"
-            class="home-image"
-          />
-          <h1 class="home-text">Sultan Rahmatullah</h1>
-          <span class="home-text1">
-            Author, UI/UX Designer, Filmmaker &amp; Programmer
-          </span>
-          <a href="about.html" class="home-navlink">About Me</a>
-          <div class="app-component-container app-component-root-class-name">
-            <a
-              href="https://github.com/tanbopp"
-              target="_blank"
-              rel="noreferrer noopener"
-              class="app-component-link"
-            >
-              <svg
-                viewBox="0 0 877.7142857142857 1024"
-                class="app-component-icon"
-              >
-                <path
-                  d="M438.857 73.143c242.286 0 438.857 196.571 438.857 438.857 0 193.714-125.714 358.286-300 416.571-22.286 4-30.286-9.714-30.286-21.143 0-14.286 0.571-61.714 0.571-120.571 0-41.143-13.714-67.429-29.714-81.143 97.714-10.857 200.571-48 200.571-216.571 0-48-17.143-86.857-45.143-117.714 4.571-11.429 19.429-56-4.571-116.571-36.571-11.429-120.571 45.143-120.571 45.143-34.857-9.714-72.571-14.857-109.714-14.857s-74.857 5.143-109.714 14.857c0 0-84-56.571-120.571-45.143-24 60.571-9.143 105.143-4.571 116.571-28 30.857-45.143 69.714-45.143 117.714 0 168 102.286 205.714 200 216.571-12.571 11.429-24 30.857-28 58.857-25.143 11.429-89.143 30.857-127.429-36.571-24-41.714-67.429-45.143-67.429-45.143-42.857-0.571-2.857 26.857-2.857 26.857 28.571 13.143 48.571 64 48.571 64 25.714 78.286 148 52 148 52 0 36.571 0.571 70.857 0.571 81.714 0 11.429-8 25.143-30.286 21.143-174.286-58.286-300-222.857-300-416.571 0-242.286 196.571-438.857 438.857-438.857zM166.286 703.429c1.143-2.286-0.571-5.143-4-6.857-3.429-1.143-6.286-0.571-7.429 1.143-1.143 2.286 0.571 5.143 4 6.857 2.857 1.714 6.286 1.143 7.429-1.143zM184 722.857c2.286-1.714 1.714-5.714-1.143-9.143-2.857-2.857-6.857-4-9.143-1.714-2.286 1.714-1.714 5.714 1.143 9.143 2.857 2.857 6.857 4 9.143 1.714zM201.143 748.571c2.857-2.286 2.857-6.857 0-10.857-2.286-4-6.857-5.714-9.714-3.429-2.857 1.714-2.857 6.286 0 10.286s7.429 5.714 9.714 4zM225.143 772.571c2.286-2.286 1.143-7.429-2.286-10.857-4-4-9.143-4.571-11.429-1.714-2.857 2.286-1.714 7.429 2.286 10.857 4 4 9.143 4.571 11.429 1.714zM257.714 786.857c1.143-3.429-2.286-7.429-7.429-9.143-4.571-1.143-9.714 0.571-10.857 4s2.286 7.429 7.429 8.571c4.571 1.714 9.714 0 10.857-3.429zM293.714 789.714c0-4-4.571-6.857-9.714-6.286-5.143 0-9.143 2.857-9.143 6.286 0 4 4 6.857 9.714 6.286 5.143 0 9.143-2.857 9.143-6.286zM326.857 784c-0.571-3.429-5.143-5.714-10.286-5.143-5.143 1.143-8.571 4.571-8 8.571 0.571 3.429 5.143 5.714 10.286 4.571s8.571-4.571 8-8z"
-                ></path>
-              </svg>
-            </a>
-            <a
-              href="https://www.instagram.com/tanboppp/"
-              target="_blank"
-              rel="noreferrer noopener"
-              class="app-component-link1"
-            >
-              <svg
-                viewBox="0 0 877.7142857142857 1024"
-                class="app-component-icon2"
-              >
-                <path
-                  d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
-                ></path>
-              </svg>
-            </a>
-            <a
-              href="https://www.facebook.com/Tanbopp"
-              target="_blank"
-              rel="noreferrer noopener"
-              class="app-component-link2"
-            >
-              <svg
-                viewBox="0 0 602.2582857142856 1024"
-                class="app-component-icon4"
-              >
-                <path
-                  d="M548 6.857v150.857h-89.714c-70.286 0-83.429 33.714-83.429 82.286v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571c0-144.571 88.571-223.429 217.714-223.429 61.714 0 114.857 4.571 130.286 6.857z"
-                ></path>
-              </svg>
-            </a>
-            <a
-              href="https://www.youtube.com/@tanbopp"
-              target="_blank"
-              rel="noreferrer noopener"
-              class="app-component-link3"
-            >
-              <svg viewBox="0 0 1024 1024" class="app-component-icon6">
-                <path
-                  d="M406.286 644.571l276.571-142.857-276.571-144.571v287.429zM512 152c215.429 0 358.286 10.286 358.286 10.286 20 2.286 64 2.286 102.857 43.429 0 0 31.429 30.857 40.571 101.714 10.857 82.857 10.286 165.714 10.286 165.714v77.714s0.571 82.857-10.286 165.714c-9.143 70.286-40.571 101.714-40.571 101.714-38.857 40.571-82.857 40.571-102.857 42.857 0 0-142.857 10.857-358.286 10.857v0c-266.286-2.286-348-10.286-348-10.286-22.857-4-74.286-2.857-113.143-43.429 0 0-31.429-31.429-40.571-101.714-10.857-82.857-10.286-165.714-10.286-165.714v-77.714s-0.571-82.857 10.286-165.714c9.143-70.857 40.571-101.714 40.571-101.714 38.857-41.143 82.857-41.143 102.857-43.429 0 0 142.857-10.286 358.286-10.286v0z"
-                ></path>
-              </svg>
-            </a>
-          </div>
+		body {
+			font-family: 'Inter', sans-serif;
+		}
+	</style>
+</head>
+<body class="bg-black text-white">
+	<nav class="w-full bg-neutral-900/75 z-50 backdrop-blur-xl text-neutral-300/80 px-6 fixed top-0">
+	  <!-- Main Navigation -->
+	  <div class="max-w-5xl mx-auto h-11 flex items-center justify-between">
+	  	<!-- Logo -->
+	  	<a href="#" class="flex items-center md:hidden">
+	  	  <img src="assets/brand/logo.svg" class="h-[19px]">
+	  	</a>
+	    
+	    <!-- Desktop Menu -->
+	    <div class="hidden md:flex w-full justify-between items-center font-medium space-x-8">
+	    	<!-- Logo -->
+	    	<a href="index.html" class="flex items-center">
+	    	  <img src="assets/brand/logo.svg" class="h-[19px]">
+	    	</a>
+
+	      	<a href="about.html" class="py-2 hover:text-neutral-200 transition duration-300">About</a>
+	      	<a href="design.html" class="py-2 hover:text-neutral-200 transition duration-300">Design</a>
+	      	<a href="develop.html" class="py-2 hover:text-neutral-200 transition duration-300">Develop</a>
+	      	<a href="photos.html" class="py-2 hover:text-neutral-200 transition duration-300">Photos</a>
+	      	<a href="experience.html" class="py-2 hover:text-neutral-200 transition duration-300">Experience</a>
+	      	<a href="contact.html" class="py-2 hover:text-neutral-200 transition duration-300">Contact</a>
+
+	      	<button class="hover:text-neutral-200">
+	        	<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+	          	<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+	        	</svg>
+	      	</button>
+	    </div>
+	    
+	    <!-- Search and Mobile Menu -->
+	    <div class="flex items-center space-x-6">
+	      
+	      <button class="md:hidden hover:opacity-80" id="menu-toggle">
+	        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+	          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+	        </svg>
+	      </button>
+	    </div>
+	  </div>
+	  
+	  <!-- Mobile Menu -->
+	  <div class="md:hidden hidden bg-transparent w-full py-4 px-4" id="mobile-menu">
+	    <div class="space-y-4">
+	      <div class="border-b border-gray-700 pb-2">
+	        <button class="flex items-center justify-between w-full py-2">
+	          <span>Discover</span>
+	          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+	          </svg>
+	        </button>
+	        <div class="pl-4 hidden">
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Overview</a>
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Technologies</a>
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Documentation</a>
+	        </div>
+	      </div>
+	      
+	      <div class="border-b border-gray-700 pb-2">
+	        <button class="flex items-center justify-between w-full py-2">
+	          <span>Design</span>
+	          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+	          </svg>
+	        </button>
+	        <div class="pl-4 hidden">
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Human Interface</a>
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Resources</a>
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Design Tools</a>
+	        </div>
+	      </div>
+	      
+	      <a href="#" class="block py-2 border-b border-gray-700">Develop</a>
+	      <a href="#" class="block py-2 border-b border-gray-700">Distribute</a>
+	      <a href="#" class="block py-2 border-b border-gray-700">Support</a>
+	    </div>
+	  </div>
+	</nav>
+
+	<!-- Hero Section -->
+    <section class="bg-black py-20 px-6">
+        <div class="max-w-5xl w-full bg-neutral-900 p-12 rounded-3xl mx-auto text-center fade-in" data-aos="fade-in" data-aos-duration="1000" data-aos-once="true">
+        	<div class="bg-neutral-900 rounded-full overflow-hidden w-44 mx-auto mb-6">
+        		<img src="assets/profile.jpg" class="w-full h-full">
+        	</div>
+        	<h2 class="text-4xl mb-4">Hello World!</h2>
+            <h1 class="text-4xl md:text-5xl text-primary font-semibold mb-5" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800" data-aos-once="true">I'm Sultan Rahmatullah</h1>
+            <p class="text-lg mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700" data-aos-once="true">I'm a <span class="text-amber-500">Software Engineer</span> with expertise in <span class="text-pink-500">iOS, Flutter, and .NET technologies</span>. I am driven by a commitment to writing clean, maintainable code and developing scalable applications that deliver exceptional user experiences.</p>
+            <a href="#work" class="inline-block bg-neutral-950/60 hover:bg-sky-950/40 hover:ring-2 hover:ring-primary text-white px-8 py-3 rounded-full font-medium transform transition duration-[500ms] ease-in-out" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" data-aos-once="true">View My Resume</a>
         </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="work" class="py-20 pb-12 px-6 bg-black">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-[2.4rem] font-bold mb-10 text-left fade-in" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800" data-aos-once="true">Projects</h2>
+            <h2 class="text-3xl font-semibold mb-8 text-left fade-in" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-once="true">Applications</h2>
+            
+            <div id="applications-list" class="grid md:grid-cols-2 gap-8"></div>
+            
+            <div class="text-center mt-12 fade-in delay-4">
+                <a href="#work" class="inline-block bg-neutral-900 hover:bg-sky-950/40 hover:ring-2 ring-primary text-white px-8 py-3 rounded-full font-medium transform transition duration-[500ms] ease-in-out">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="work" class="py-12 px-6 bg-black">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-semibold mb-8 text-left fade-in" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-once="true">Websites</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="rounded-3xl bg-neutral-900 overflow-hidden shadow-md card-hover fade-in delay-1" data-aos="fade-in" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 1" class="w-full h-64 object-cover">
+                    <div class="p-6 flex-1 text-center">
+                        <h3 class="text-2xl font-semibold mb-4">E-commerce Platform</h3>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">UI Design</span>
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">Frontend</span>
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">E-commerce</span>
+                        </div>
+                        <div class="py-2">
+                        	<a href="#work" class="text-primary hover:underline flex justify-center items-center">
+                        	Visit Website
+                        	<svg xmlns="http://www.w3.org/2000/svg" width="13" class="mt-1 ml-1" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1">
+                        	    <path d="M4 2l4 4-4 4" />
+                        	  </svg>
+                        	</a>
+                    	</div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="rounded-3xl bg-neutral-900 overflow-hidden shadow-md card-hover fade-in delay-1" data-aos="fade-in" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 1" class="w-full h-64 object-cover">
+                    <div class="p-6 flex-1 text-center">
+                        <h3 class="text-2xl font-semibold mb-4">E-commerce Platform</h3>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">UI Design</span>
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">Frontend</span>
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">E-commerce</span>
+                        </div>
+                        <div class="py-2">
+                        	<a href="#work" class="text-primary hover:underline flex justify-center items-center">
+                        	Visit Website
+                        	<svg xmlns="http://www.w3.org/2000/svg" width="13" class="mt-1 ml-1" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1">
+                        	    <path d="M4 2l4 4-4 4" />
+                        	  </svg>
+                        	</a>
+                    	</div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="rounded-3xl bg-neutral-900 overflow-hidden shadow-md card-hover fade-in delay-1" data-aos="fade-in" data-aos-delay="300" data-aos-duration="1000" data-aos-once="true">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 1" class="w-full h-64 object-cover">
+                    <div class="p-6 flex-1 text-center">
+                        <h3 class="text-2xl font-semibold mb-4">E-commerce Platform</h3>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">UI Design</span>
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">Frontend</span>
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">E-commerce</span>
+                        </div>
+                        <div class="py-2">
+                        	<a href="#work" class="text-primary hover:underline flex justify-center items-center">
+                        	Visit Website
+                        	<svg xmlns="http://www.w3.org/2000/svg" width="13" class="mt-1 ml-1" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1">
+                        	    <path d="M4 2l4 4-4 4" />
+                        	  </svg>
+                        	</a>
+                    	</div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="rounded-3xl bg-neutral-900 overflow-hidden shadow-md card-hover fade-in delay-1" data-aos="fade-in" data-aos-delay="400" data-aos-duration="1000" data-aos-once="true">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 1" class="w-full h-64 object-cover">
+                    <div class="p-6 flex-1 text-center">
+                        <h3 class="text-2xl font-semibold mb-4">E-commerce Platform</h3>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">UI Design</span>
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">Frontend</span>
+                            <span class="bg-neutral-800 text-sm px-3 py-1 rounded-full">E-commerce</span>
+                        </div>
+                        <div class="py-2">
+                        	<a href="#work" class="text-primary hover:underline flex justify-center items-center">
+                        	Visit Website
+                        	<svg xmlns="http://www.w3.org/2000/svg" width="13" class="mt-1 ml-1" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1">
+                        	    <path d="M4 2l4 4-4 4" />
+                        	  </svg>
+                        	</a>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in delay-4">
+                <a href="#work" class="inline-block bg-neutral-900 hover:bg-sky-950/40 hover:ring-2 ring-primary text-white px-8 py-3 rounded-full font-medium transform transition duration-[500ms] ease-in-out">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 bg-neutral-900 text-neutral-400">
+        <div class="max-w-6xl mx-auto text-center">
+            <p>© 2025 Tanbopp. All rights reserved.</p>
+        </div>
+    </footer>
+
+	<!-- AOS Animation JS -->
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script>
+	  AOS.init();
+	</script>
+
+	<script>
+	  // Toggle mobile menu
+	  const menuToggle = document.getElementById('menu-toggle');
+	  const mobileMenu = document.getElementById('mobile-menu');
+	  
+	  menuToggle.addEventListener('click', () => {
+	    mobileMenu.classList.toggle('hidden');
+	  });
+	  
+	  // Toggle mobile submenus
+	  const mobileSubmenuButtons = document.querySelectorAll('#mobile-menu button');
+	  mobileSubmenuButtons.forEach(button => {
+	    button.addEventListener('click', () => {
+	      const submenu = button.nextElementSibling;
+	      submenu.classList.toggle('hidden');
+	    });
+	  });
+	</script>
+
+	<script type="module">
+	import { applications } from './projects/data.js';
+
+const appList = document.getElementById('applications-list');
+if (appList && applications) {
+  appList.innerHTML = applications.map((app, idx) => `
+    <div class="rounded-3xl bg-neutral-900 overflow-hidden shadow-md card-hover fade-in delay-1" data-aos="fade-in" data-aos-delay="${100 * (idx + 1)}" data-aos-duration="1000" data-aos-once="true">
+      <img src="${app.image}" alt="${app.title}" class="w-full h-64 object-cover">
+      <div class="p-6">
+        <h3 class="text-2xl font-semibold mb-4">${app.title}</h3>
+        <div class="flex flex-wrap gap-2 mb-4">
+          ${app.tags.map(tag => `<span class='bg-neutral-800 text-sm px-3 py-1 rounded-full'>${tag}</span>`).join('')}
+        </div>
+        <a href="${app.link}" class="inline-block bg-neutral-950/60 hover:bg-sky-950/40 hover:ring-2 ring-primary text-white px-6 py-2 rounded-full font-medium transform transition duration-[500ms] ease-in-out">View Work</a>
       </div>
     </div>
-  </body>
+  `).join('');
+}
+	</script>
+</body>
 </html>

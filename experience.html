@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Experience | Tanbopp</title>
+	<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+
+	<!-- Tailwindcss CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+	    tailwind.config = {
+	      theme: {
+	        extend: {
+	          colors: {
+	            primary: '#128AEB'
+	          }
+	        }
+	      }
+	    }
+	</script>
+
+	<!-- AOS Animation CSS -->
+	<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+		body {
+			font-family: 'Inter', sans-serif;
+		}
+
+		.timeline-line {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 2px;
+			background: linear-gradient(to bottom, #128AEB, #0f7bc7, #0f7bc7, #0f7bc7, #0f7bc7, #0d6ba830);
+			top: 0;
+			bottom: 0;
+		}
+
+		.timeline-item {
+			position: relative;
+			margin-bottom: 4rem;
+		}
+
+		.timeline-item:last-child {
+			margin-bottom: 0;
+		}
+
+		.timeline-point {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 16px;
+			height: 16px;
+			background: #128AEB;
+			border: 4px solid #000;
+			border-radius: 50%;
+			z-index: 10;
+		}
+
+		.timeline-content {
+			width: 45%;
+			position: relative;
+		}
+
+		.timeline-content.left {
+			margin-left: 0;
+			text-align: right;
+		}
+
+		.timeline-content.right {
+			margin-left: 55%;
+			text-align: left;
+		}
+
+		@media (max-width: 768px) {
+			.timeline-line {
+				left: 2rem;
+			}
+
+			.timeline-point {
+				left: 2rem;
+			}
+
+			.timeline-content {
+				width: calc(100% - 5rem);
+				margin-left: 5rem !important;
+				text-align: left !important;
+			}
+		}
+	</style>
+</head>
+<body class="bg-black text-white">
+	<div class="h-11 bg-neutral-900"></div>
+	<nav class="w-full bg-neutral-900/75 z-50 backdrop-blur-xl text-neutral-300/80 px-6 fixed top-0">
+	  <!-- Main Navigation -->
+	  <div class="max-w-5xl mx-auto h-11 flex items-center justify-between">
+	  	<!-- Logo -->
+	  	<a href="#" class="flex items-center md:hidden">
+	  	  <img src="assets/brand/logo.svg" class="h-[19px]">
+	  	</a>
+	    
+	    <!-- Desktop Menu -->
+	    <div class="hidden md:flex w-full justify-between items-center font-medium space-x-8">
+	    	<!-- Logo -->
+	    	<a href="index.html" class="flex items-center">
+	    	  <img src="assets/brand/logo.svg" class="h-[19px]">
+	    	</a>
+
+	      	<a href="about.html" class="py-2 hover:text-neutral-200 transition duration-300">About</a>
+	      	<a href="design.html" class="py-2 hover:text-neutral-200 transition duration-300">Design</a>
+	      	<a href="develop.html" class="py-2 hover:text-neutral-200 transition duration-300">Develop</a>
+	      	<a href="photos.html" class="py-2 hover:text-neutral-200 transition duration-300">Photos</a>
+	      	<a href="experience.html" class="py-2 text-neutral-400 transition duration-300">Experience</a>
+	      	<a href="contact.html" class="py-2 hover:text-neutral-200 transition duration-300">Contact</a>
+
+	      	<button class="hover:text-neutral-200">
+	        	<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+	          	<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+	        	</svg>
+	      	</button>
+	    </div>
+	    
+	    <!-- Search and Mobile Menu -->
+	    <div class="flex items-center space-x-6">
+	      
+	      <button class="md:hidden hover:opacity-80" id="menu-toggle">
+	        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+	          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+	        </svg>
+	      </button>
+	    </div>
+	  </div>
+	  
+	  <!-- Mobile Menu -->
+	  <div class="md:hidden hidden bg-transparent w-full py-4 px-4" id="mobile-menu">
+	    <div class="space-y-4">
+	      <div class="border-b border-gray-700 pb-2">
+	        <button class="flex items-center justify-between w-full py-2">
+	          <span>Discover</span>
+	          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+	          </svg>
+	        </button>
+	        <div class="pl-4 hidden">
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Overview</a>
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Technologies</a>
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Documentation</a>
+	        </div>
+	      </div>
+	      
+	      <div class="border-b border-gray-700 pb-2">
+	        <button class="flex items-center justify-between w-full py-2">
+	          <span>Design</span>
+	          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+	          </svg>
+	        </button>
+	        <div class="pl-4 hidden">
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Human Interface</a>
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Resources</a>
+	          <a href="#" class="block py-2 text-gray-400 hover:text-white">Design Tools</a>
+	        </div>
+	      </div>
+	      
+	      <a href="#" class="block py-2 border-b border-gray-700">Develop</a>
+	      <a href="#" class="block py-2 border-b border-gray-700">Distribute</a>
+	      <a href="#" class="block py-2 border-b border-gray-700">Support</a>
+	    </div>
+	  </div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="bg-neutral-900 py-24 px-6">
+	  <div class="max-w-5xl mx-auto text-center">
+	    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">Professional Experience</h1>
+	    <p class="text-xl text-neutral-300 max-w-3xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-once="true">A journey through my career in software development, showcasing growth, achievements, and the evolution of my technical expertise.</p>
+	    <div class="flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-once="true">
+	      <span class="bg-neutral-800 text-sm px-4 py-2 rounded-full">6+ Years Experience</span>
+	      <span class="bg-neutral-800 text-sm px-4 py-2 rounded-full">15+ Projects</span>
+	      <span class="bg-neutral-800 text-sm px-4 py-2 rounded-full">Multiple Industries</span>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Timeline Section -->
+	<section class="bg-black py-20 px-6">
+	  <div class="max-w-4xl mx-auto relative">    
+	  <!-- Timeline Line -->
+    <div class="timeline-line"></div>
+
+    <!-- 2025 - Present -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content right bg-gradient-to-br from-neutral-900 to-neutral-800 p-8 rounded-3xl shadow-lg border border-primary/20">
+        <div class="text-primary text-sm font-medium mb-2">2025 - Present</div>
+        <h3 class="text-2xl font-bold mb-4">Principal Software Architect</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Promoted to Principal Software Architect at Tech Innovation Labs, leading enterprise-level architecture decisions across multiple product lines. Spearheading the adoption of microservices, cloud-native technologies, and AI integration strategies for next-generation applications.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Solution Architecture</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Microservices</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Cloud Native</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">AI Integration</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 - 2025 -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="75" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content left bg-gradient-to-br from-neutral-900 to-neutral-800 p-8 rounded-3xl shadow-lg border border-primary/20">
+        <div class="text-primary text-sm font-medium mb-2">2024 - 2025</div>
+        <h3 class="text-2xl font-bold mb-4">Senior Technical Lead</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Transitioned to Senior Technical Lead role, overseeing multiple engineering teams and driving technical strategy. Successfully led the migration of legacy systems to modern cloud infrastructure, resulting in 40% performance improvement and 60% cost reduction.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Technical Strategy</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Cloud Migration</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">System Architecture</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Performance Optimization</span>
+        </div>
+      </div>
+    </div>    
+    <!-- 2023 - 2024 -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content right bg-neutral-900 p-8 rounded-3xl shadow-lg">
+        <div class="text-primary text-sm font-medium mb-2">2023 - 2024</div>
+        <h3 class="text-2xl font-bold mb-4">Senior Mobile Team Lead</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Leading mobile development initiatives at PT. Digital Inovasi, focusing on scalable iOS and Flutter applications. Responsible for architectural decisions, mentoring junior developers, and driving technical excellence across multiple high-impact projects.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Team Leadership</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">iOS</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Flutter</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Architecture</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2022 - 2023 -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="125" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content left bg-neutral-900 p-8 rounded-3xl shadow-lg">
+        <div class="text-primary text-sm font-medium mb-2">2022 - 2023</div>
+        <h3 class="text-2xl font-bold mb-4">Senior Mobile Developer</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Promoted to Senior Mobile Developer role with expanded responsibilities including code reviews, technical mentoring, and strategic planning for mobile development roadmap. Led the implementation of CI/CD pipelines and automated testing frameworks.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">CI/CD</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Code Review</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Mentoring</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">DevOps</span>
+        </div>
+      </div>
+    </div>    
+    <!-- 2022 - 2024 -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content left bg-neutral-900 p-8 rounded-3xl shadow-lg">
+        <div class="text-primary text-sm font-medium mb-2">2021 - 2022</div>
+        <h3 class="text-2xl font-bold mb-4">Mobile Developer</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Developed and maintained multiple mobile applications using Flutter and Swift, collaborating closely with UI/UX designers and backend teams. Successfully delivered 8+ mobile apps with over 100K+ combined downloads across app stores.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Flutter</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Swift</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Firebase</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">REST API</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2021 - 2021 -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="225" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content right bg-neutral-900 p-8 rounded-3xl shadow-lg">
+        <div class="text-primary text-sm font-medium mb-2">2021</div>
+        <h3 class="text-2xl font-bold mb-4">Junior Mobile Developer</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Joined PT. Digital Inovasi as Junior Mobile Developer, transitioning from freelance work to full-time employment. Focused on learning Flutter framework and contributing to client projects while establishing coding standards and best practices.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Flutter Learning</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Team Collaboration</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Code Standards</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Client Projects</span>
+        </div>
+      </div>
+    </div>    
+    <!-- 2020 - 2021 -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="250" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content left bg-neutral-900 p-8 rounded-3xl shadow-lg">
+        <div class="text-primary text-sm font-medium mb-2">2020 - 2021</div>
+        <h3 class="text-2xl font-bold mb-4">Freelance Software Engineer</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Expanded freelance services to include full-stack development and mobile applications. Worked with diverse clients ranging from startups to established SMEs, delivering custom software solutions and building long-term partnerships.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Full Stack</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Client Relations</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Mobile Development</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Business Growth</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2019 - 2020 -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="275" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content right bg-neutral-900 p-8 rounded-3xl shadow-lg">
+        <div class="text-primary text-sm font-medium mb-2">2019 - 2020</div>
+        <h3 class="text-2xl font-bold mb-4">Freelance Web Developer</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Started freelance career while completing education, providing web development services to local businesses. Built websites using modern frameworks and gained valuable experience in client communication and project management.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Web Development</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">React</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">WordPress</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Client Management</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2018 - 2019 -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content left bg-neutral-900 p-8 rounded-3xl shadow-lg">
+        <div class="text-primary text-sm font-medium mb-2">2018 - 2019</div>
+        <h3 class="text-2xl font-bold mb-4">Junior Full Stack Developer</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Started my professional journey at PT. Teknologi Maju, working on web applications using modern JavaScript frameworks and .NET backend services. Gained extensive experience in database design, API development, and responsive web design.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">C#</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">SQL Server</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">HTML/CSS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2018 - 2019 -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content right bg-neutral-900 p-8 rounded-3xl shadow-lg">
+        <div class="text-primary text-sm font-medium mb-2">2017 - 2018</div>
+        <h3 class="text-2xl font-bold mb-4">Software Development Intern</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Completed internship program at CV. Digital Solutions, learning fundamental programming concepts and software development methodologies. Contributed to internal tools development and gained hands-on experience with version control and team collaboration.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Learning</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Git</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Java</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">MySQL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Programming Bootcamp -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="225" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content left bg-gradient-to-br from-neutral-900 to-neutral-800 p-8 rounded-3xl shadow-lg border border-neutral-700">
+        <div class="text-primary text-sm font-medium mb-2">2017</div>
+        <h3 class="text-2xl font-bold mb-4">Intensive Programming Bootcamp</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Enrolled in an intensive 6-month programming bootcamp to accelerate learning and bridge the gap between academic knowledge and industry requirements. Completed multiple real-world projects and earned industry-recognized certifications.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Intensive Learning</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Real Projects</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Certifications</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Industry Skills</span>
+        </div>
+      </div>
+    </div>    <!-- Education -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="250" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content right bg-gradient-to-br from-neutral-900 to-neutral-800 p-8 rounded-3xl shadow-lg border border-neutral-700">
+        <div class="text-primary text-sm font-medium mb-2">2015 - 2018</div>
+        <h3 class="text-2xl font-bold mb-4">Computer Science Education</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Studied at SMK Jakarta Pusat 1, focusing on computer science fundamentals, programming languages, and software engineering principles. Graduated with honors and received recognition for outstanding performance in programming competitions.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Computer Science</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Algorithms</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Data Structures</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Honors Graduate</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Competitive Programming -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="275" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content left bg-gradient-to-br from-neutral-900 to-neutral-800 p-8 rounded-3xl shadow-lg border border-neutral-700">
+        <div class="text-primary text-sm font-medium mb-2">2016 - 2017</div>
+        <h3 class="text-2xl font-bold mb-4">Competitive Programming</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Actively participated in regional and national programming competitions, consistently placing in top rankings. This experience significantly improved problem-solving skills and algorithmic thinking, laying a strong foundation for future development work.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Problem Solving</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Algorithms</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Competitions</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Critical Thinking</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- First Web Project -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content right bg-gradient-to-br from-neutral-900 to-neutral-800 p-8 rounded-3xl shadow-lg border border-neutral-700">
+        <div class="text-primary text-sm font-medium mb-2">2015 - 2016</div>
+        <h3 class="text-2xl font-bold mb-4">First Web Development Project</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Built my first complete web application - a school management system using PHP and MySQL. This project sparked my passion for web development and taught me the importance of user experience and database design.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">PHP</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">MySQL</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">First Project</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Database Design</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Early Interest -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="325" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content left bg-gradient-to-br from-neutral-900 to-neutral-800 p-8 rounded-3xl shadow-lg border border-neutral-700">
+        <div class="text-primary text-sm font-medium mb-2">2013 - 2015</div>
+        <h3 class="text-2xl font-bold mb-4">First Steps in Programming</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">Discovered my passion for programming during high school. Started with basic HTML/CSS websites and gradually learned JavaScript and Python. Built my first simple web applications and participated in local coding competitions, igniting a lifelong love for technology.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">HTML/CSS</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Python</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Self-Learning</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Very Beginning -->
+    <div class="timeline-item" data-aos="fade-up" data-aos-delay="350" data-aos-duration="1000" data-aos-once="true">
+      <div class="timeline-point"></div>
+      <div class="timeline-content right bg-gradient-to-br from-neutral-900 to-neutral-800 p-8 rounded-3xl shadow-lg border border-neutral-700">
+        <div class="text-primary text-sm font-medium mb-2">2013</div>
+        <h3 class="text-2xl font-bold mb-4">The Beginning</h3>
+        <p class="text-neutral-300 mb-4 leading-relaxed">My journey into the world of programming began when I first encountered HTML in a computer class. The ability to create something visual and interactive with just text sparked an immediate fascination that would shape my entire career path.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">First Code</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">HTML</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Curiosity</span>
+          <span class="bg-neutral-800 text-xs px-3 py-1 rounded-full">Foundation</span>
+        </div>
+      </div>
+    </div>
+	  </div>
+	</section>
+
+	<!-- Skills Evolution Section -->
+	<section class="bg-black py-20 px-6">
+	  <div class="max-w-5xl mx-auto">
+	    <h2 class="text-3xl font-semibold mb-12 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">Skills Evolution Over Time</h2>
+	    
+	    <div class="grid md:grid-cols-3 gap-8">
+	      <!-- Early Career -->
+	      <div class="bg-neutral-900 rounded-3xl p-8" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-once="true">
+	        <h3 class="text-xl font-semibold mb-6 text-primary">Early Career (2018-2020)</h3>
+	        <div class="space-y-3">
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">HTML/CSS</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-20 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">JavaScript</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-16 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">C#/.NET</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-14 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">SQL</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-16 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Mid Career -->
+	      <div class="bg-neutral-900 rounded-3xl p-8" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-once="true">
+	        <h3 class="text-xl font-semibold mb-6 text-primary">Mid Career (2020-2022)</h3>
+	        <div class="space-y-3">
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">React</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-20 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">Flutter</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-18 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">Node.js</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-16 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">Firebase</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-20 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Current -->
+	      <div class="bg-neutral-900 rounded-3xl p-8" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" data-aos-once="true">
+	        <h3 class="text-xl font-semibold mb-6 text-primary">Current (2022-Present)</h3>
+	        <div class="space-y-3">
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">Swift/iOS</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-22 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">Flutter</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-24 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">Architecture</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-20 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	          <div class="flex justify-between items-center">
+	            <span class="text-neutral-200">Leadership</span>
+	            <div class="w-24 h-2 bg-neutral-700 rounded-full">
+	              <div class="w-18 h-2 bg-primary rounded-full"></div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Achievements Section -->
+	<section class="bg-black py-20 px-6">
+	  <div class="max-w-5xl mx-auto">
+	    <h2 class="text-3xl font-semibold mb-12 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">Key Achievements</h2>
+	    
+	    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+	      <!-- Achievement 1 -->
+	      <div class="text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-once="true">
+	        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+	          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+	          </svg>
+	        </div>
+	        <h3 class="text-2xl font-bold text-primary mb-2">15+</h3>
+	        <p class="text-neutral-400">Mobile Apps Delivered</p>
+	      </div>
+
+	      <!-- Achievement 2 -->
+	      <div class="text-center" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-once="true">
+	        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+	          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+	          </svg>
+	        </div>
+	        <h3 class="text-2xl font-bold text-primary mb-2">5+</h3>
+	        <p class="text-neutral-400">Team Members Mentored</p>
+	      </div>
+
+	      <!-- Achievement 3 -->
+	      <div class="text-center" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" data-aos-once="true">
+	        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+	          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+	          </svg>
+	        </div>
+	        <h3 class="text-2xl font-bold text-primary mb-2">100K+</h3>
+	        <p class="text-neutral-400">App Downloads</p>
+	      </div>
+
+	      <!-- Achievement 4 -->
+	      <div class="text-center" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800" data-aos-once="true">
+	        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+	          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+	          </svg>
+	        </div>
+	        <h3 class="text-2xl font-bold text-primary mb-2">3</h3>
+	        <p class="text-neutral-400">Industry Awards</p>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="py-8 px-6 bg-neutral-900 text-neutral-400">
+	    <div class="max-w-6xl mx-auto text-center">
+	        <p>© 2025 Tanbopp. All rights reserved.</p>
+	    </div>
+	</footer>
+
+	<!-- AOS Animation JS -->
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script>
+	  AOS.init();
+	</script>
+
+	<script>
+	  // Toggle mobile menu
+	  const menuToggle = document.getElementById('menu-toggle');
+	  const mobileMenu = document.getElementById('mobile-menu');
+	  
+	  menuToggle.addEventListener('click', () => {
+	    mobileMenu.classList.toggle('hidden');
+	  });
+	  
+	  // Toggle mobile submenus
+	  const mobileSubmenuButtons = document.querySelectorAll('#mobile-menu button');
+	  mobileSubmenuButtons.forEach(button => {
+	    button.addEventListener('click', () => {
+	      const submenu = button.nextElementSibling;
+	      submenu.classList.toggle('hidden');
+	    });
+	  });
+	</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tanbopp Portfolio</title>
-	<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+	<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
 
 	<!-- Tailwindcss CDN -->
 	<script src="https://cdn.tailwindcss.com"></script>
@@ -512,30 +512,80 @@
 	      const yPos = -(scrolled * speed);
 	      element.style.transform = `translateY(${yPos}px)`;
 	    });
-	  });
-	</script>
-	<script type="module">
-	import { applications } from './projects/data.js';
-
-	const appList = document.getElementById('applications-list');
-	if (appList && applications) {
-	  appList.innerHTML = applications.map((app, idx) => `
-	    <div class="rounded-3xl bg-neutral-900 overflow-hidden shadow-md card-hover fade-in delay-1" data-aos="fade-in" data-aos-delay="${100 * (idx + 1)}" data-aos-duration="1000" data-aos-once="true">
-	      <img src="${app.image}" alt="${app.title}" class="w-full h-64 object-cover">
-	      <div class="p-6">
-	        <h3 class="text-2xl font-semibold mb-4">${app.title}</h3>
-	        <div class="flex flex-wrap gap-2 mb-4">
-	          ${app.tags.map(tag => `<span class='bg-neutral-800 text-sm px-3 py-1 rounded-full'>${tag}</span>`).join('')}
-	        </div>
-	        <a href="${app.link}" class="inline-block bg-neutral-950/60 hover:bg-sky-950/40 hover:ring-2 ring-primary text-white px-6 py-2 rounded-full font-medium transform transition duration-[500ms] ease-in-out">View Work</a>
-	      </div>
-	    </div>
-	  `).join('');
-	}
-	</script>
-
+	  });	</script>
 	<!-- Load project data -->
-	<script src="projects/data.js"></script>
+	<script>
+		// Project data inline to ensure GitHub Pages compatibility
+		window.projectsData = [
+			{
+				id: "shopify-plus",
+				title: "ShopifyPlus E-commerce Platform",
+				description: "A comprehensive e-commerce platform built with modern technologies, featuring advanced product management, real-time inventory tracking, and seamless payment integration.",
+				image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+				tags: ["UI Design", "Frontend", "E-commerce"],
+				category: "Web Development",
+				workFor: "TechCorp Solutions",
+				platform: ["Web", "Mobile Responsive"],
+				year: "2024",
+				month: "March",
+				deliverables: ["UI/UX Design", "Frontend Development", "Backend API", "Admin Dashboard"],
+				technologies: ["React", "Node.js", "MongoDB", "Stripe API", "AWS"],
+				challenge: "Creating a scalable e-commerce platform that could handle high traffic loads during peak shopping seasons while maintaining fast page load times and secure payment processing.",
+				solutions: "Implemented microservices architecture with Redis caching, optimized database queries, and used CDN for static assets. Added automated scaling on AWS to handle traffic spikes.",
+				gallery: [
+					"https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+					"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+					"https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+					"https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+				],
+				link: "project-detail.html?id=shopify-plus"
+			},
+			{
+				id: "fitness-tracker",
+				title: "FitTrack Mobile App",
+				description: "A comprehensive fitness tracking application with real-time workout monitoring, nutrition planning, and social features to connect with other fitness enthusiasts.",
+				image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+				tags: ["Mobile App", "Flutter", "Health"],
+				category: "Mobile Development",
+				workFor: "HealthTech Innovations",
+				platform: ["iOS", "Android"],
+				year: "2024",
+				month: "January",
+				deliverables: ["Mobile App Design", "Cross-platform Development", "Backend API", "Real-time Analytics"],
+				technologies: ["Flutter", "Firebase", "Dart", "Google Fit API", "Apple HealthKit"],
+				challenge: "Integrating with multiple health data sources while ensuring data privacy and creating an intuitive user experience for users of all fitness levels.",
+				solutions: "Implemented secure OAuth authentication, created modular widgets for different fitness metrics, and designed an adaptive UI that adjusts based on user preferences and fitness goals.",
+				gallery: [
+					"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+					"https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+					"https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+				],
+				link: "project-detail.html?id=fitness-tracker"
+			},
+			{
+				id: "task-management",
+				title: "TaskFlow Management System",
+				description: "A modern task management system with team collaboration features, real-time updates, and advanced project tracking capabilities.",
+				image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+				tags: ["Web App", "React", "Team Collaboration"],
+				category: "Web Development",
+				workFor: "ProductivityFlow Inc",
+				platform: ["Web", "Desktop"],
+				year: "2024",
+				month: "February",
+				deliverables: ["Project Management Dashboard", "Team Collaboration Tools", "API Development", "Data Analytics"],
+				technologies: ["React", "Node.js", "PostgreSQL", "Socket.io", "Docker"],
+				challenge: "Building a real-time collaborative platform that could handle multiple teams working simultaneously while maintaining data consistency and providing instant updates.",
+				solutions: "Implemented WebSocket connections for real-time updates, used event-driven architecture for data consistency, and optimized database queries with proper indexing and caching strategies.",
+				gallery: [
+					"https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+					"https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+					"https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+				],
+				link: "project-detail.html?id=task-management"
+			}
+		];
+	</script>
 	<script>
 	// Alternative loading using window global for better compatibility
 	document.addEventListener('DOMContentLoaded', function() {

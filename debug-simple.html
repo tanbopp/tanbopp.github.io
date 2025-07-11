@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Project Loading</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+        }
+        .debug-box {
+            background: #333;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { color: #4CAF50; }
+        .error { color: #f44336; }
+        .warning { color: #ff9800; }
+    </style>
+</head>
+<body>
+    <h1>Debug Project Data Loading</h1>
+    
+    <div class="debug-box">
+        <h3>URL Parameters:</h3>
+        <div id="url-params"></div>
+    </div>
+    
+    <div class="debug-box">
+        <h3>Data Loading Status:</h3>
+        <div id="data-status"></div>
+    </div>
+    
+    <div class="debug-box">
+        <h3>Project Search Result:</h3>
+        <div id="project-result"></div>
+    </div>
+
+    <!-- Project data inline -->
+    <script>
+        window.projectsData = [
+            {
+                id: "shopify-plus",
+                title: "ShopifyPlus E-commerce Platform",
+                description: "A comprehensive e-commerce platform built with modern technologies, featuring advanced product management, real-time inventory tracking, and seamless payment integration.",
+                category: "Web Development",
+                workFor: "TechCorp Solutions",
+                platform: ["Web", "Mobile Responsive"],
+                year: "2024",
+                month: "March",
+                deliverables: ["UI/UX Design", "Frontend Development", "Backend API", "Admin Dashboard"],
+                technologies: ["React", "Node.js", "MongoDB", "Stripe API", "AWS"],
+                challenge: "Creating a scalable e-commerce platform...",
+                solutions: "Implemented microservices architecture...",
+                gallery: [
+                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ]
+            },
+            {
+                id: "fitness-tracker",
+                title: "FitTrack Mobile App",
+                description: "A comprehensive fitness tracking application...",
+                category: "Mobile Development"
+            },
+            {
+                id: "task-management",
+                title: "TaskFlow Management System",
+                description: "A modern task management system...",
+                category: "Web Development"
+            }
+        ];
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+            
+            document.getElementById('url-params').innerHTML = `
+                <div>Full URL: ${window.location.href}</div>
+                <div>Search params: ${window.location.search}</div>
+                <div>Project ID: <span class="${projectId ? 'success' : 'error'}">${projectId || 'NOT FOUND'}</span></div>
+            `;
+            
+            // Debug data loading
+            const dataLoaded = !!window.projectsData;
+            const dataCount = window.projectsData ? window.projectsData.length : 0;
+            
+            document.getElementById('data-status').innerHTML = `
+                <div>Data loaded: <span class="${dataLoaded ? 'success' : 'error'}">${dataLoaded ? 'YES' : 'NO'}</span></div>
+                <div>Projects count: <span class="${dataCount > 0 ? 'success' : 'warning'}">${dataCount}</span></div>
+                <div>Available IDs: ${window.projectsData ? window.projectsData.map(p => p.id).join(', ') : 'None'}</div>
+            `;
+            
+            // Debug project search
+            if (projectId && window.projectsData) {
+                const project = window.projectsData.find(p => p.id === projectId);
+                
+                document.getElementById('project-result').innerHTML = `
+                    <div>Project found: <span class="${project ? 'success' : 'error'}">${project ? 'YES' : 'NO'}</span></div>
+                    ${project ? `
+                        <div>Title: ${project.title}</div>
+                        <div>Category: ${project.category}</div>
+                        <div>Description: ${project.description.substring(0, 100)}...</div>
+                    ` : `
+                        <div class="error">Project with ID "${projectId}" not found!</div>
+                        <div>Available projects: ${window.projectsData.map(p => `${p.id} (${p.title})`).join(', ')}</div>
+                    `}
+                `;
+            } else {
+                document.getElementById('project-result').innerHTML = `
+                    <div class="warning">Cannot search: ${!projectId ? 'No project ID' : 'No data loaded'}</div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

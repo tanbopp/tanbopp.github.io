@@ -212,7 +212,9 @@
 	  <div class="max-w-5xl mx-auto">
 	    <h2 class="text-3xl font-semibold mb-12 text-left" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">Recent Projects</h2>
 	    
-	    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+	    <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Projects will be populated by JavaScript -->
+    </div>
 	      <!-- Project 1 -->
 	      <div class="bg-neutral-900 rounded-3xl overflow-hidden shadow-lg hover:transform hover:scale-105 transition duration-300" data-aos="fade-in" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">
 	        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Task Management App" class="w-full h-48 object-cover">
@@ -391,7 +393,6 @@
 	<script>
 	  AOS.init();
 	</script>
-
 	<script>
 	  // Toggle mobile menu
 	  const menuToggle = document.getElementById('menu-toggle');
@@ -409,6 +410,52 @@
 	      submenu.classList.toggle('hidden');
 	    });
 	  });
+	</script>
+	<script type="module">
+	import { applications } from './projects/data.js';
+
+	const projectsGrid = document.getElementById('projects-grid');
+	if (projectsGrid && applications) {
+	  projectsGrid.innerHTML = applications.map((app, idx) => `
+	    <div class="bg-neutral-900 rounded-3xl overflow-hidden shadow-lg hover:transform hover:scale-105 transition duration-300" data-aos="fade-in" data-aos-delay="${100 * (idx + 1)}" data-aos-duration="1000" data-aos-once="true">
+	      <img src="${app.image}" alt="${app.title}" class="w-full h-48 object-cover">
+	      <div class="p-6">
+	        <h3 class="text-xl font-semibold mb-3">${app.title}</h3>
+	        <p class="text-neutral-400 mb-4 text-sm">${app.description || 'Modern software solution with cutting-edge technology.'}</p>
+	        <div class="flex flex-wrap gap-2 mb-4">
+	          ${app.tags.map(tag => `<span class='bg-neutral-800 text-xs px-2 py-1 rounded-full'>${tag}</span>`).join('')}
+	        </div>
+	        <a href="${app.link}" class="text-primary hover:underline text-sm">View Project →</a>
+	      </div>
+	    </div>
+	  `).join('');
+	}
+	</script>
+
+	<!-- Load project data -->
+	<script src="projects/data.js"></script>
+	<script>
+	// Alternative loading using window global for better compatibility
+	document.addEventListener('DOMContentLoaded', function() {
+		const applications = window.projectsData || [];
+		const projectsGrid = document.getElementById('projects-grid');
+		
+		if (projectsGrid && applications) {
+		  projectsGrid.innerHTML = applications.map((app, idx) => `
+		    <div class="bg-neutral-900 rounded-3xl overflow-hidden shadow-lg hover:transform hover:scale-105 transition duration-300" data-aos="fade-in" data-aos-delay="${100 * (idx + 1)}" data-aos-duration="1000" data-aos-once="true">
+		      <img src="${app.image}" alt="${app.title}" class="w-full h-48 object-cover">
+		      <div class="p-6">
+		        <h3 class="text-xl font-semibold mb-3">${app.title}</h3>
+		        <p class="text-neutral-400 mb-4 text-sm">${app.description || 'Modern software solution with cutting-edge technology.'}</p>
+		        <div class="flex flex-wrap gap-2 mb-4">
+		          ${app.tags.map(tag => `<span class='bg-neutral-800 text-xs px-2 py-1 rounded-full'>${tag}</span>`).join('')}
+		        </div>
+		        <a href="${app.link}" class="text-primary hover:underline text-sm">View Project →</a>
+		      </div>
+		    </div>
+		  `).join('');
+		}
+	});
 	</script>
 </body>
 </html>

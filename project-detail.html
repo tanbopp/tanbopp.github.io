@@ -144,17 +144,44 @@
 			font-size: 18px;
 			font-weight: 600;
 			margin-bottom: 16px;
-			position: relative;
 		}
 
-		.section-title::after {
-			content: '';
-			position: absolute;
-			bottom: -4px;
-			left: 0;
-			width: 40px;
-			height: 2px;
-			background: linear-gradient(90deg, #128AEB, #3B82F6);
+		/* Navigation Styles */
+		#main-nav {
+			transition: transform 0.2s ease-in-out;
+		}
+
+		#sub-nav {
+			transition: top 0.2s ease-in-out;
+		}
+
+		/* Hide main nav when scrolled */
+		.nav-hidden {
+			transform: translateY(-100%);
+		}
+
+		/* Gallery Grid Styles */
+		.gallery-grid-item {
+			position: relative;
+			overflow: hidden;
+			border-radius: 12px;
+			cursor: pointer;
+			transition: transform 0.3s ease;
+		}
+
+		.gallery-grid-item:hover {
+			transform: scale(1.02);
+		}
+
+		.gallery-grid-item img {
+			width: 100%;
+			height: 250px;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
+
+		.gallery-grid-item:hover img {
+			transform: scale(1.1);
 		}
 
 		/* Responsive Gallery */
@@ -162,12 +189,33 @@
 			.gallery-slide {
 				height: 300px;
 			}
+			
+			.gallery-grid-item img {
+				height: 200px;
+			}
+			
+			/* Mobile adjustments for sub nav */
+			#sub-nav .flex.items-center.space-x-6 {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 8px;
+			}
+			
+			#sub-nav .flex.items-center.space-x-4 {
+				flex-direction: row;
+				gap: 12px;
+			}
+			
+			#sub-nav-title {
+				font-size: 14px;
+				max-width: 200px;
+			}
 		}
 	</style>
 </head>
 <body class="bg-black text-white">
-	<!-- Navigation -->
-	<nav class="w-full bg-neutral-900/75 z-50 backdrop-blur-xl text-neutral-300/80 px-6 fixed top-0">
+	<!-- Main Navigation -->
+	<nav id="main-nav" class="w-full bg-neutral-900/75 z-50 backdrop-blur-xl text-neutral-300/80 px-6 fixed top-0 transition-transform duration-300">
 	  <div class="max-w-5xl mx-auto h-11 flex items-center justify-between">
 	  	<!-- Logo -->
 	  	<a href="#" class="flex items-center md:hidden">
@@ -217,32 +265,46 @@
 	  </div>
 	</nav>
 
+	<!-- Sub Navigation (Always Fixed) -->
+	<nav id="sub-nav" class="w-full bg-neutral-900/75 backdrop-blur-xl border-b border-neutral-700/50 z-40 fixed" style="top: 44px;">
+	  <div class="max-w-5xl mx-auto py-3">
+	    <div class="flex items-center justify-between">
+	      <!-- Project Navigation -->
+	      <div class="flex items-center space-x-6 text-sm">
+	        <button onclick="history.back()" class="flex items-center space-x-2 text-neutral-400 hover:text-primary transition-colors duration-300">
+	          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+	          </svg>
+	          <span>Back</span>
+	        </button>
+	        <div class="w-px h-4 bg-neutral-600"></div>
+	        <span id="sub-nav-title" class="text-neutral-300 font-medium truncate max-w-lg">Project Details</span>
+	      </div>
+	      
+	      <!-- Quick Actions -->
+	      <div class="flex items-center space-x-4 text-sm">
+	        <a href="contact.html" class="text-neutral-400 hover:text-primary transition-colors duration-300">
+	          Get In Touch
+	        </a>
+	      </div>
+	    </div>
+	  </div>
+	</nav>
+
 	<!-- Main Content -->
-	<main class="pt-20 min-h-screen bg-black">
-		<!-- Back Button -->
-		<div class="max-w-6xl mx-auto px-6 py-8">
+	<main class="min-h-screen bg-black" style="padding-top: 88px;">
+		<!-- Back Button - Hidden since it's now in sub nav -->
+		<!-- <div class="max-w-6xl mx-auto px-6 py-8">
 			<button onclick="history.back()" class="flex items-center space-x-2 text-neutral-400 hover:text-primary transition-colors duration-300" data-aos="fade-right">
 				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
 				</svg>
 				<span>Back to Projects</span>
 			</button>
-		</div>
-
-		<!-- Project Header -->
-		<section class="max-w-6xl mx-auto px-6 pb-12">
-			<div class="text-center mb-12" data-aos="fade-up">
-				<h1 id="project-title" class="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-purple-400">
-					Loading...
-				</h1>
-				<p id="project-description" class="text-xl text-neutral-400 max-w-4xl mx-auto leading-relaxed">
-					Loading project description...
-				</p>
-			</div>
-		</section>
+		</div> -->
 
 		<!-- Image Gallery -->
-		<section class="max-w-6xl mx-auto px-6 mb-16">
+		<section class="max-w-6xl mx-auto px-6 mb-16 mt-12">
 			<div class="gallery-container rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-up" data-aos-delay="200">
 				<div id="gallery-track" class="gallery-track">
 					<!-- Gallery images will be populated by JavaScript -->
@@ -263,13 +325,41 @@
 			</div>
 		</section>
 
+		<!-- Project Description -->
+		<section class="max-w-6xl mx-auto px-6 mb-16">
+			<div data-aos="fade-up" data-aos-delay="300">
+				<h3 class="section-title">About This Project</h3>
+				<p id="project-full-description" class="text-neutral-300 leading-relaxed text-lg">
+					Loading project description...
+				</p>
+			</div>
+		</section>
+
+		<!-- Gallery This Project -->
+		<section class="max-w-6xl mx-auto px-6 mb-16">
+			<div data-aos="fade-up" data-aos-delay="400">
+				<h3 class="section-title">Gallery This Project</h3>
+				<div id="project-gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+					<!-- Gallery grid will be populated by JavaScript -->
+				</div>
+			</div>
+		</section>
+
+		<!-- Description -->
+		<section class="max-w-6xl mx-auto px-6 mb-16 space-y-5 text-neutral-300 text-lg">
+			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+		</section>
+
 		<!-- Project Details -->
 		<section class="max-w-6xl mx-auto px-6 mb-16">
 			<div class="grid lg:grid-cols-3 gap-8">
 				<!-- Main Content Column -->
 				<div class="lg:col-span-2 space-y-8">
 					<!-- Challenge Section -->
-					<div id="challenge-section" class="content-section" data-aos="fade-up" data-aos-delay="300">
+					<div id="challenge-section" data-aos="fade-up" data-aos-delay="300">
 						<h3 class="section-title">Challenge</h3>
 						<p id="project-challenge" class="text-neutral-300 leading-relaxed">
 							Loading challenge description...
@@ -277,7 +367,7 @@
 					</div>
 
 					<!-- Solutions Section -->
-					<div id="solutions-section" class="content-section" data-aos="fade-up" data-aos-delay="400">
+					<div id="solutions-section" data-aos="fade-up" data-aos-delay="400">
 						<h3 class="section-title">Solutions</h3>
 						<p id="project-solutions" class="text-neutral-300 leading-relaxed">
 							Loading solutions description...
@@ -285,7 +375,7 @@
 					</div>
 
 					<!-- Technologies Section -->
-					<div id="technologies-section" class="content-section" data-aos="fade-up" data-aos-delay="500">
+					<div id="technologies-section" data-aos="fade-up" data-aos-delay="500">
 						<h3 class="section-title">Technologies Used</h3>
 						<div id="project-technologies" class="flex flex-wrap gap-2">
 							<!-- Technologies will be populated by JavaScript -->
@@ -296,7 +386,7 @@
 				<!-- Sidebar Column -->
 				<div class="space-y-6">
 					<!-- Project Info -->
-					<div class="content-section" data-aos="fade-up" data-aos-delay="300">
+					<div data-aos="fade-up" data-aos-delay="300">
 						<h3 class="section-title">Project Info</h3>
 						<div class="space-y-4">
 							<div id="category-info">
@@ -319,7 +409,7 @@
 					</div>
 
 					<!-- Deliverables -->
-					<div id="deliverables-section" class="content-section" data-aos="fade-up" data-aos-delay="400">
+					<div id="deliverables-section" data-aos="fade-up" data-aos-delay="400">
 						<h3 class="section-title">Deliverables</h3>
 						<ul id="project-deliverables" class="space-y-2">
 							<!-- Deliverables will be populated by JavaScript -->
@@ -361,85 +451,8 @@
 		AOS.init();
 	</script>
 
-	<!-- Project data inline to ensure it loads on GitHub Pages -->
-	<script>
-		// Project data inline to ensure compatibility with GitHub Pages
-		window.projectsData = [
-			{
-				id: "shopify-plus",
-				title: "ShopifyPlus E-commerce Platform",
-				description: "A comprehensive e-commerce platform built with modern technologies, featuring advanced product management, real-time inventory tracking, and seamless payment integration.",
-				image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-				tags: ["UI Design", "Frontend", "E-commerce"],
-				category: "Web Development",
-				workFor: "TechCorp Solutions",
-				platform: ["Web", "Mobile Responsive"],
-				year: "2024",
-				month: "March",
-				deliverables: ["UI/UX Design", "Frontend Development", "Backend API", "Admin Dashboard"],
-				technologies: ["React", "Node.js", "MongoDB", "Stripe API", "AWS"],
-				challenge: "Creating a scalable e-commerce platform that could handle high traffic loads during peak shopping seasons while maintaining fast page load times and secure payment processing.",
-				solutions: "Implemented microservices architecture with Redis caching, optimized database queries, and used CDN for static assets. Added automated scaling on AWS to handle traffic spikes.",
-				gallery: [
-					"https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-					"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-					"https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-					"https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-				],
-				link: "project-detail.html?id=shopify-plus"
-			},
-			{
-				id: "fitness-tracker",
-				title: "FitTrack Mobile App",
-				description: "A comprehensive fitness tracking application with real-time workout monitoring, nutrition planning, and social features to connect with other fitness enthusiasts.",
-				image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-				tags: ["Mobile App", "Flutter", "Health"],
-				category: "Mobile Development",
-				workFor: "HealthTech Innovations",
-				platform: ["iOS", "Android"],
-				year: "2024",
-				month: "January",
-				deliverables: ["Mobile App Design", "Cross-platform Development", "Backend API", "Real-time Analytics"],
-				technologies: ["Flutter", "Firebase", "Dart", "Google Fit API", "Apple HealthKit"],
-				challenge: "Integrating with multiple health data sources while ensuring data privacy and creating an intuitive user experience for users of all fitness levels.",
-				solutions: "Implemented secure OAuth authentication, created modular widgets for different fitness metrics, and designed an adaptive UI that adjusts based on user preferences and fitness goals.",
-				gallery: [
-					"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-					"https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-					"https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-				],
-				link: "project-detail.html?id=fitness-tracker"
-			},
-			{
-				id: "task-management",
-				title: "TaskFlow Management System",
-				description: "A modern task management system with team collaboration features, real-time updates, and advanced project tracking capabilities.",
-				image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-				tags: ["Web App", "React", "Team Collaboration"],
-				category: "Web Development",
-				workFor: "ProductivityFlow Inc",
-				platform: ["Web", "Desktop"],
-				year: "2024",
-				month: "February",
-				deliverables: ["Project Management Dashboard", "Team Collaboration Tools", "API Development", "Data Analytics"],
-				technologies: ["React", "Node.js", "PostgreSQL", "Socket.io", "Docker"],
-				challenge: "Building a real-time collaborative platform that could handle multiple teams working simultaneously while maintaining data consistency and providing instant updates.",
-				solutions: "Implemented WebSocket connections for real-time updates, used event-driven architecture for data consistency, and optimized database queries with proper indexing and caching strategies.",
-				gallery: [
-					"https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-					"https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-					"https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-				],
-				link: "project-detail.html?id=task-management"
-			}
-		];
-		
-		console.log('✅ Project data loaded inline for GitHub Pages compatibility');
-		console.log('📊 Available projects:', window.projectsData.length);
-		window.projectsData.forEach(project => {
-			console.log(`📋 ${project.id}: ${project.title}`);
-		});
-	</script>
+	<!-- Project data from external file -->
+	<script src="projects/data.js"></script>
 
 	<!-- Project Detail JavaScript -->
 	<script>
@@ -607,6 +620,12 @@
 				if (titleEl) titleEl.textContent = project.title;
 				if (descEl) descEl.textContent = project.description;
 
+				// Full description
+				if (project.fullDescription) {
+					const fullDescEl = document.getElementById('project-full-description');
+					if (fullDescEl) fullDescEl.textContent = project.fullDescription;
+				}
+
 				// Project info sidebar
 				if (project.category) {
 					const categoryEl = document.getElementById('project-category');
@@ -702,6 +721,31 @@
 				console.log('✅ Project data populated successfully');
 			}
 
+			// Initialize gallery grid
+			function initializeGalleryGrid() {
+				const galleryGridContainer = document.getElementById('project-gallery-grid');
+				if (!galleryGridContainer) return;
+
+				const gallery = project.gallery || [project.image];
+				
+				galleryGridContainer.innerHTML = gallery.map((image, index) => `
+					<div class="gallery-grid-item" data-aos="fade-up" data-aos-delay="${300 + (index * 100)}">
+						<img src="${image}" alt="${project.title} - Image ${index + 1}" class="w-full h-full object-cover">
+					</div>
+				`).join('');
+
+				// Add click event to open lightbox (optional enhancement)
+				const gridItems = galleryGridContainer.querySelectorAll('.gallery-grid-item');
+				gridItems.forEach((item, index) => {
+					item.addEventListener('click', () => {
+						// You can add lightbox functionality here
+						console.log('Clicked gallery item:', index);
+					});
+				});
+
+				console.log('✅ Gallery grid initialized with', gallery.length, 'images');
+			}
+
 			// Mobile menu functionality
 			const menuToggle = document.getElementById('menu-toggle');
 			const mobileMenu = document.getElementById('mobile-menu');
@@ -712,9 +756,49 @@
 				});
 			}
 
+			// Navbar scroll behavior
+			let lastScrollTop = 0;
+			const mainNav = document.getElementById('main-nav');
+			const subNav = document.getElementById('sub-nav');
+			
+			window.addEventListener('scroll', function() {
+				const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+				
+				if (scrollTop > lastScrollTop && scrollTop > 100) {
+					// Scrolling down & past threshold - hide main nav
+					if (mainNav) {
+						mainNav.style.transform = 'translateY(-100%)';
+					}
+					if (subNav) {
+						subNav.style.top = '0px';
+					}
+				} else {
+					// Scrolling up - show main nav
+					if (mainNav) {
+						mainNav.style.transform = 'translateY(0)';
+					}
+					if (subNav) {
+						subNav.style.top = '44px';
+					}
+				}
+				
+				lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+			});
+
+			// Update sub nav title with project title
+			if (project && project.title) {
+				const subNavTitle = document.getElementById('sub-nav-title');
+				if (subNavTitle) {
+					subNavTitle.textContent = project.title.length > 30 ? 
+						project.title.substring(0, 30) + '...' : 
+						project.title;
+				}
+			}
+
 			// Initialize everything
 			populateProjectData();
 			initializeGallery();
+			initializeGalleryGrid();
 			
 			console.log('🎉 Project detail page initialized successfully!');
 		});

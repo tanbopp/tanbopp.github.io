@@ -60,14 +60,13 @@
 
 		.gallery-slide {
 			min-width: 100%;
-			height: 500px;
 		}
 
 		.gallery-nav {
 			position: absolute;
 			top: 50%;
 			transform: translateY(-50%);
-			background: rgba(0, 0, 0, 0.5);
+			background: rgba(0, 0, 0, 0.3);
 			backdrop-filter: blur(10px);
 			border: 1px solid rgba(255, 255, 255, 0.1);
 			color: white;
@@ -79,8 +78,12 @@
 		}
 
 		.gallery-nav:hover {
-			background: rgba(18, 138, 235, 0.8);
-			transform: translateY(-50%) scale(1.1);
+			background: rgba(0, 0, 0, 0.5);
+			transform: translateY(-50%);
+		}
+
+		.gallery-nav::focus {
+			border: 1px #128aeb;
 		}
 
 		.gallery-nav.prev {
@@ -293,19 +296,9 @@
 
 	<!-- Main Content -->
 	<main class="min-h-screen bg-black" style="padding-top: 88px;">
-		<!-- Back Button - Hidden since it's now in sub nav -->
-		<!-- <div class="max-w-6xl mx-auto px-6 py-8">
-			<button onclick="history.back()" class="flex items-center space-x-2 text-neutral-400 hover:text-primary transition-colors duration-300" data-aos="fade-right">
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-				</svg>
-				<span>Back to Projects</span>
-			</button>
-		</div> -->
-
 		<!-- Image Gallery -->
-		<section class="max-w-6xl mx-auto px-6 mb-16 mt-12">
-			<div class="gallery-container rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+		<section class="w-full mb-16">
+			<div class="gallery-container overflow-hidden shadow-2xl" data-aos="fade">
 				<div id="gallery-track" class="gallery-track">
 					<!-- Gallery images will be populated by JavaScript -->
 				</div>
@@ -320,37 +313,38 @@
 					</svg>
 				</button>
 			</div>
-			<div id="gallery-dots" class="gallery-dots">
+			<div id="gallery-dots" class="gallery-dots hidden">
 				<!-- Dots will be populated by JavaScript -->
+			</div>
+		</section>
+
+		<!-- Project Title -->
+		<section class="max-w-6xl px-6 mx-auto pt-12">
+			<div class="text-center mb-12" data-aos="fade">
+				<h1 id="project-title" class="text-4xl md:text-5xl font-bold text-left mb-6 text-transparent text-white">
+					Loading...
+				</h1>
 			</div>
 		</section>
 
 		<!-- Project Description -->
 		<section class="max-w-6xl mx-auto px-6 mb-16">
-			<div data-aos="fade-up" data-aos-delay="300">
+			<div data-aos="fade">
 				<h3 class="section-title">About This Project</h3>
-				<p id="project-full-description" class="text-neutral-300 leading-relaxed text-lg">
-					Loading project description...
-				</p>
+				<div id="project-full-description" class="space-y-5 text-neutral-300 leading-relaxed text-lg">
+					<p>Loading project description...</p>
+				</div>
 			</div>
 		</section>
 
 		<!-- Gallery This Project -->
 		<section class="max-w-6xl mx-auto px-6 mb-16">
-			<div data-aos="fade-up" data-aos-delay="400">
+			<div data-aos="fade">
 				<h3 class="section-title">Gallery This Project</h3>
 				<div id="project-gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 					<!-- Gallery grid will be populated by JavaScript -->
 				</div>
 			</div>
-		</section>
-
-		<!-- Description -->
-		<section class="max-w-6xl mx-auto px-6 mb-16 space-y-5 text-neutral-300 text-lg">
-			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
 		</section>
 
 		<!-- Project Details -->
@@ -359,7 +353,7 @@
 				<!-- Main Content Column -->
 				<div class="lg:col-span-2 space-y-8">
 					<!-- Challenge Section -->
-					<div id="challenge-section" data-aos="fade-up" data-aos-delay="300">
+					<div id="challenge-section" data-aos="fade">
 						<h3 class="section-title">Challenge</h3>
 						<p id="project-challenge" class="text-neutral-300 leading-relaxed">
 							Loading challenge description...
@@ -367,7 +361,7 @@
 					</div>
 
 					<!-- Solutions Section -->
-					<div id="solutions-section" data-aos="fade-up" data-aos-delay="400">
+					<div id="solutions-section" data-aos="fade">
 						<h3 class="section-title">Solutions</h3>
 						<p id="project-solutions" class="text-neutral-300 leading-relaxed">
 							Loading solutions description...
@@ -375,7 +369,7 @@
 					</div>
 
 					<!-- Technologies Section -->
-					<div id="technologies-section" data-aos="fade-up" data-aos-delay="500">
+					<div id="technologies-section" data-aos="fade">
 						<h3 class="section-title">Technologies Used</h3>
 						<div id="project-technologies" class="flex flex-wrap gap-2">
 							<!-- Technologies will be populated by JavaScript -->
@@ -386,7 +380,7 @@
 				<!-- Sidebar Column -->
 				<div class="space-y-6">
 					<!-- Project Info -->
-					<div data-aos="fade-up" data-aos-delay="300">
+					<div data-aos="fade">
 						<h3 class="section-title">Project Info</h3>
 						<div class="space-y-4">
 							<div id="category-info">
@@ -409,7 +403,7 @@
 					</div>
 
 					<!-- Deliverables -->
-					<div id="deliverables-section" data-aos="fade-up" data-aos-delay="400">
+					<div id="deliverables-section" data-aos="fade">
 						<h3 class="section-title">Deliverables</h3>
 						<ul id="project-deliverables" class="space-y-2">
 							<!-- Deliverables will be populated by JavaScript -->
@@ -421,7 +415,7 @@
 
 		<!-- Call to Action -->
 		<section class="max-w-6xl mx-auto px-6 py-16 text-center">
-			<div class="bg-gradient-to-r from-primary/10 to-purple-600/10 rounded-2xl p-12 border border-primary/20" data-aos="fade-up" data-aos-delay="600">
+			<div class="bg-gradient-to-r from-primary/10 to-purple-600/10 rounded-2xl p-12 border border-primary/20" data-aos="fade">
 				<h3 class="text-3xl font-bold mb-4">Interested in Working Together?</h3>
 				<p class="text-neutral-400 mb-8 max-w-2xl mx-auto">
 					Let's discuss your next project and bring your ideas to life with cutting-edge technology and innovative solutions.
@@ -448,7 +442,9 @@
 	<!-- AOS Animation JS -->
 	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 	<script>
-		AOS.init();
+		AOS.init({
+			once: true
+		});
 	</script>
 
 	<!-- Project data from external file -->
@@ -460,13 +456,117 @@
 		document.addEventListener('DOMContentLoaded', function() {
 			console.log('🚀 Initializing project detail page...');
 			
+			// Debug: Check if data.js loaded
+			console.log('📊 window.projectsData:', window.projectsData);
+			
 			// Get project ID from URL parameters
 			const urlParams = new URLSearchParams(window.location.search);
 			const projectId = urlParams.get('id');
 			console.log('🔍 Looking for project ID:', projectId);
 
-			// Get applications data from global scope
-			const applications = window.projectsData || [];
+			// Get applications data from global scope or fallback
+			let applications = window.projectsData || [];
+			
+			// Fallback data if external file fails to load
+			if (!applications || applications.length === 0) {
+				console.warn('⚠️ External data.js not loaded, using fallback data');
+				applications = [
+					{
+						id: "shopify-plus",
+						title: "ShopifyPlus E-commerce Platform",
+						description: "A comprehensive e-commerce platform built with modern technologies, featuring advanced product management, real-time inventory tracking, and seamless payment integration.",
+						fullDescription: [
+							"ShopifyPlus represents the next generation of e-commerce platforms, designed to handle enterprise-level traffic while maintaining exceptional user experience. This project involved creating a scalable architecture that could support millions of products, handle thousands of concurrent users, and provide real-time inventory updates across multiple sales channels.",
+							"The platform features advanced analytics, automated marketing tools, and seamless integration with popular payment gateways and shipping providers. We implemented a microservices architecture that ensures high availability and allows for independent scaling of different system components.",
+							"One of the key challenges was maintaining data consistency across distributed systems while ensuring sub-second response times. Our solution involved implementing event-driven architecture with careful consideration for eventual consistency patterns.",
+							"The result is a robust platform that has successfully handled Black Friday traffic spikes of over 50,000 concurrent users while maintaining 99.9% uptime and average response times under 200ms."
+						],
+						image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+						tags: ["UI Design", "Frontend", "E-commerce"],
+						category: "Web Development",
+						workFor: "TechCorp Solutions",
+						platform: ["Web", "Mobile Responsive"],
+						year: "2024",
+						month: "March",
+						deliverables: ["UI/UX Design", "Frontend Development", "Backend API", "Admin Dashboard"],
+						technologies: ["React", "Node.js", "MongoDB", "Stripe API", "AWS"],
+						challenge: "Creating a scalable e-commerce platform that could handle high traffic loads during peak shopping seasons while maintaining fast page load times and secure payment processing.",
+						solutions: "Implemented microservices architecture with Redis caching, optimized database queries, and used CDN for static assets. Added automated scaling on AWS to handle traffic spikes.",
+						gallery: [
+							"https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+						],
+						link: "project-detail.html?id=shopify-plus"
+					},
+					{
+						id: "fitness-tracker",
+						title: "FitTrack Mobile App",
+						description: "A comprehensive fitness tracking application with real-time workout monitoring, nutrition planning, and social features to connect with other fitness enthusiasts.",
+						fullDescription: [
+							"FitTrack revolutionizes personal fitness management by combining advanced health monitoring with social engagement features. The app provides detailed workout analytics, personalized nutrition recommendations, and connects users with a community of fitness enthusiasts.",
+							"Built with cross-platform compatibility in mind, it seamlessly integrates with popular health devices and platforms while maintaining strict privacy standards for sensitive health data.",
+							"The social aspect of the app allows users to join challenges, share achievements, and get motivation from friends and fitness coaches.",
+							"Since launch, FitTrack has helped over 100,000 users achieve their fitness goals with an average user engagement rate of 85%."
+						],
+						image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+						tags: ["Mobile App", "Flutter", "Health"],
+						category: "Mobile Development",
+						workFor: "HealthTech Innovations",
+						platform: ["iOS", "Android"],
+						year: "2024",
+						month: "January",
+						deliverables: ["Mobile App Design", "Cross-platform Development", "Backend API", "Real-time Analytics"],
+						technologies: ["Flutter", "Firebase", "Dart", "Google Fit API", "Apple HealthKit"],
+						challenge: "Integrating with multiple health data sources while ensuring data privacy and creating an intuitive user experience for users of all fitness levels.",
+						solutions: "Implemented secure OAuth authentication, created modular widgets for different fitness metrics, and designed an adaptive UI that adjusts based on user preferences and fitness goals.",
+						gallery: [
+							"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1434596922112-19c563067271?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+						],
+						link: "project-detail.html?id=fitness-tracker"
+					},
+					{
+						id: "task-management",
+						title: "TaskFlow Management System",
+						description: "An enterprise-level task management system with advanced collaboration features, time tracking, and comprehensive reporting capabilities.",
+						fullDescription: [
+							"TaskFlow represents a complete reimagining of project management software, designed specifically for modern teams who need powerful collaboration tools without complexity. The system provides intuitive task organization, real-time progress tracking, and comprehensive reporting features.",
+							"Built with scalability in mind, it supports everything from small startup teams to large enterprise organizations with thousands of users.",
+							"The real-time collaboration features include live document editing, instant messaging, and shared workspaces that sync across all devices.",
+							"TaskFlow has been adopted by over 500 companies worldwide, resulting in an average 40% improvement in project delivery times."
+						],
+						image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+						tags: ["Web App", "Dashboard", "Enterprise"],
+						category: "Web Development",
+						workFor: "Enterprise Solutions Ltd",
+						platform: ["Web", "Desktop"],
+						year: "2023",
+						month: "November",
+						deliverables: ["System Architecture", "Frontend Development", "API Development", "Documentation"],
+						technologies: [".NET Core", "Angular", "PostgreSQL", "SignalR", "Docker"],
+						challenge: "Building a real-time collaborative environment that could scale to support thousands of concurrent users while maintaining data consistency and security.",
+						solutions: "Utilized SignalR for real-time updates, implemented CQRS pattern for better performance, and added comprehensive caching strategies with Redis.",
+						gallery: [
+							"https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+						],
+						link: "project-detail.html?id=task-management"
+					}
+				];
+			}
+			
 			console.log('📊 Total projects loaded:', applications.length);
 
 			// Find the project data
@@ -476,8 +576,11 @@
 			if (!project) {
 				console.error('❌ Project not found');
 				// Show error message
-				document.getElementById('project-title').textContent = 'Project Not Found';
-				document.getElementById('project-description').innerHTML = `
+				const titleEl = document.getElementById('project-title');
+				const descEl = document.getElementById('project-description');
+				
+				if (titleEl) titleEl.textContent = 'Project Not Found';
+				if (descEl) descEl.innerHTML = `
 					The project with ID "${projectId}" could not be found.<br><br>
 					Available project IDs: ${applications.map(app => app.id).join(', ')}
 				`;
@@ -506,7 +609,7 @@
 
 				// Create gallery slides
 				galleryTrack.innerHTML = gallery.map(image => `
-					<div class="gallery-slide">
+					<div class="gallery-slide aspect-[16/5]">
 						<img src="${image}" alt="${project.title}" class="w-full h-full object-cover">
 					</div>
 				`).join('');
@@ -623,7 +726,17 @@
 				// Full description
 				if (project.fullDescription) {
 					const fullDescEl = document.getElementById('project-full-description');
-					if (fullDescEl) fullDescEl.textContent = project.fullDescription;
+					if (fullDescEl) {
+						if (Array.isArray(project.fullDescription)) {
+							// Handle array of paragraphs
+							fullDescEl.innerHTML = project.fullDescription.map(paragraph => 
+								`<p>${paragraph}</p>`
+							).join('');
+						} else {
+							// Handle single string
+							fullDescEl.innerHTML = `<p>${project.fullDescription}</p>`;
+						}
+					}
 				}
 
 				// Project info sidebar
@@ -729,7 +842,7 @@
 				const gallery = project.gallery || [project.image];
 				
 				galleryGridContainer.innerHTML = gallery.map((image, index) => `
-					<div class="gallery-grid-item" data-aos="fade-up" data-aos-delay="${300 + (index * 100)}">
+					<div class="gallery-grid-item" data-aos="fade">
 						<img src="${image}" alt="${project.title} - Image ${index + 1}" class="w-full h-full object-cover">
 					</div>
 				`).join('');

@@ -34,35 +34,35 @@ window.projectsData = [
     link: "project-detail.html?id=shopify-plus"
   },
   {
-    id: "fitness-tracker",
-    title: "FitTrack Mobile App",
-    description: "A comprehensive fitness tracking application with real-time workout monitoring, nutrition planning, and social features to connect with other fitness enthusiasts.",
+    id: "tokoku",
+    title: "TokoKu - Point of Sale App",
+    description: "A comprehensive Point of Sale application designed for small to medium businesses, featuring inventory management, sales tracking, and customer management.",
     fullDescription: [
-      "FitTrack revolutionizes personal fitness management by combining advanced health monitoring with social engagement features. The app provides detailed workout analytics, personalized nutrition recommendations, and connects users with a community of fitness enthusiasts.",
-      "Built with cross-platform compatibility in mind, it seamlessly integrates with popular health devices and platforms while maintaining strict privacy standards for sensitive health data. The app features real-time heart rate monitoring, GPS tracking for outdoor activities, and comprehensive meal planning tools.",
-      "The social aspect of the app allows users to join challenges, share achievements, and get motivation from friends and fitness coaches. We implemented a sophisticated recommendation engine that adapts to user preferences and fitness goals over time.",
-      "Since launch, FitTrack has helped over 100,000 users achieve their fitness goals, with an average user engagement rate of 85% and a 4.8-star rating across both iOS and Android app stores."
+      "TokoKu revolutionizes retail management by providing a complete Point of Sale solution tailored for Indonesian small and medium businesses. The app offers comprehensive inventory tracking, real-time sales analytics, and customer relationship management features.",
+      "Built with modern mobile technology, it works seamlessly across multiple devices and provides offline functionality to ensure business continuity even without internet connection.",
+      "The application includes advanced features like barcode scanning, receipt printing, multi-payment methods, and detailed sales reports that help business owners make informed decisions.",
+      "Since launch, TokoKu has been adopted by over 500 retail businesses across Indonesia, helping them increase sales efficiency by 40% and reduce inventory management time by 60%."
     ],
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    tags: ["Mobile App", "Flutter", "Health"],
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    tags: ["Mobile App", "POS", "Business"],
     category: "Mobile Development",
-    workFor: "HealthTech Innovations",
+    workFor: "Local Business Solutions",
     platform: ["iOS", "Android"],
     year: "2024",
     month: "January",
-    deliverables: ["Mobile App Design", "Cross-platform Development", "Backend API", "Real-time Analytics"],
-    technologies: ["Flutter", "Firebase", "Dart", "Google Fit API", "Apple HealthKit"],
-    challenge: "Integrating with multiple health data sources while ensuring data privacy and creating an intuitive user experience for users of all fitness levels.",
-    solutions: "Implemented secure OAuth authentication, created modular widgets for different fitness metrics, and designed an adaptive UI that adjusts based on user preferences and fitness goals.",
+    deliverables: ["Mobile App Design", "Cross-platform Development", "Backend API", "Payment Integration"],
+    technologies: ["Flutter", "Firebase", "Dart", "Payment Gateway", "SQLite"],
+    challenge: "Creating a reliable Point of Sale system that works offline and syncs seamlessly when connection is restored, while maintaining data integrity.",
+    solutions: "Implemented local SQLite database with automatic sync mechanisms, created robust conflict resolution algorithms, and designed an intuitive interface suitable for various business types.",
     gallery: [
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1434596922112-19c563067271?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     ],
-    link: "project-detail.html?id=fitness-tracker"
+    link: "project-detail.html?id=tokoku"
   },
   {
     id: "task-management",

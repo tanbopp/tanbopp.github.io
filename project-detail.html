@@ -29,24 +29,6 @@
 			font-family: 'Inter', sans-serif;
 		}
 
-		/* Custom Scrollbar */
-		::-webkit-scrollbar {
-			width: 8px;
-		}
-
-		::-webkit-scrollbar-track {
-			background: #1a1a1a;
-		}
-
-		::-webkit-scrollbar-thumb {
-			background: #128AEB;
-			border-radius: 4px;
-		}
-
-		::-webkit-scrollbar-thumb:hover {
-			background: #0f6db8;
-		}
-
 		/* Gallery Styles */
 		.gallery-container {
 			position: relative;
@@ -60,6 +42,17 @@
 
 		.gallery-slide {
 			min-width: 100%;
+		}
+
+		.gallery-slide img,
+		.gallery-slide video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.gallery-slide video {
+			background: #000;
 		}
 
 		.gallery-nav {
@@ -117,14 +110,13 @@
 
 		/* Tech Badge Styles */
 		.tech-badge {
-			background: linear-gradient(135deg, #128AEB 0%, #3B82F6 100%);
+			background-color: #181818;
 			color: white;
 			padding: 8px 16px;
 			border-radius: 20px;
 			font-size: 14px;
 			font-weight: 500;
 			display: inline-block;
-			margin: 4px;
 			transition: transform 0.3s ease;
 		}
 
@@ -155,7 +147,16 @@
 		}
 
 		#sub-nav {
-			transition: top 0.2s ease-in-out;
+			transition: transform 0.2s ease-out !important;
+		}
+
+		/* Custom sub-nav animation states */
+		.sub-nav-hidden {
+			transform: translateY(-100%) !important;
+		}
+
+		.sub-nav-visible {
+			transform: translateY(0) !important;
 		}
 
 		/* Hide main nav when scrolled */
@@ -167,7 +168,6 @@
 		.gallery-grid-item {
 			position: relative;
 			overflow: hidden;
-			border-radius: 6px;
 			cursor: pointer;
 			transition: transform 0.3s ease;
 		}
@@ -176,15 +176,33 @@
 			transform: scale(1.02);
 		}
 
-		.gallery-grid-item img {
+		.gallery-grid-item img,
+		.gallery-grid-item video {
 			width: 100%;
 			aspect-ratio: 16/9;
 			object-fit: cover;
 			transition: transform 0.3s ease;
+			background: #000;
 		}
 
-		.gallery-grid-item:hover img {
+		.gallery-grid-item:hover img,
+		.gallery-grid-item:hover video {
 			transform: scale(1.1);
+		}
+
+		/* Media type indicator */
+		.media-indicator {
+			position: absolute;
+			top: 8px;
+			right: 8px;
+			background: rgba(0, 0, 0, 0.8);
+			color: white;
+			padding: 4px 8px;
+			border-radius: 4px;
+			font-size: 12px;
+			font-weight: 500;
+			z-index: 2;
+			backdrop-filter: blur(4px);
 		}
 
 		/* Lightbox Zoom */
@@ -192,6 +210,18 @@
 			transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%);
 			transform: scale(2) !important;
 			cursor: zoom-out !important;
+		}
+
+		/* Lightbox media styles */
+		#lightbox-image,
+		#lightbox-video {
+			max-width: 90vw;
+			max-height: 80vh;
+			object-fit: contain;
+		}
+
+		#lightbox-video {
+			background: #000;
 		}
 
 		/* Responsive Gallery */
@@ -276,18 +306,11 @@
 	</nav>
 
 	<!-- Sub Navigation (Shows only when scrolling) -->
-	<nav id="sub-nav" class="w-full bg-neutral-900/75 backdrop-blur-xl border-b border-neutral-700/50 z-40 fixed transform -translate-y-full transition-transform duration-300" style="top: 0px;">
-	  <div class="max-w-5xl mx-auto py-3">
+	<nav id="sub-nav" class="w-full bg-neutral-900/75 backdrop-blur-xl border-b border-neutral-700/50 z-40 fixed sub-nav-hidden py-3 px-6" style="top: 0px;">
+	  <div class="max-w-5xl mx-auto">
 	    <div class="flex items-center justify-between">
 	      <!-- Project Navigation -->
-	      <div class="flex items-center space-x-6 text-sm">
-	        <button onclick="history.back()" class="flex items-center space-x-2 text-neutral-400 hover:text-primary transition-colors duration-300">
-	          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-	            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-	          </svg>
-	          <span>Back</span>
-	        </button>
-	        <div class="w-px h-4 bg-neutral-600"></div>
+	      <div class="flex items-center text-sm">
 	        <span id="sub-nav-title" class="text-neutral-300 font-medium truncate max-w-lg">Project Details</span>
 	      </div>
 	      
@@ -301,22 +324,22 @@
 	  </div>
 	</nav>
 
-	<!-- Main Content -->
-	<main class="min-h-screen bg-black" style="padding-top: 44px;">
-		<!-- Image Gallery -->
-		<section class="w-full mb-16">
-			<div class="gallery-container overflow-hidden shadow-2xl" data-aos="fade">
-				<div id="gallery-track" class="gallery-track h-[70vh]">
-					<!-- Gallery images will be populated by JavaScript -->
-				</div>
+	<!-- Image Gallery -->
+	<section class="w-full mb-16">
+		<div class="gallery-container overflow-hidden" data-aos="fade">
+			<div id="gallery-track" class="gallery-track h-auto">
+				<!-- Gallery images will be populated by JavaScript -->
 			</div>
-			<div id="gallery-dots" class="gallery-dots hidden">
-				<!-- Dots will be populated by JavaScript -->
-			</div>
-		</section>
+		</div>
+		<div id="gallery-dots" class="gallery-dots hidden">
+			<!-- Dots will be populated by JavaScript -->
+		</div>
+	</section>
 
+	<!-- Main Content -->
+	<main class="h-auto bg-black px-6">
 		<!-- Project Title -->
-		<section class="max-w-6xl px-6 mx-auto pt-12">
+		<section class="max-w-5xl mx-auto pt-12">
 			<div class="text-center mb-12" data-aos="fade">
 				<h1 id="project-title" class="text-4xl md:text-5xl font-bold text-left mb-6 text-transparent text-white">
 					Loading...
@@ -325,9 +348,8 @@
 		</section>
 
 		<!-- Project Description -->
-		<section class="max-w-6xl mx-auto px-6 mb-16">
+		<section class="max-w-5xl mx-auto mb-16">
 			<div data-aos="fade">
-				<h3 class="section-title">About This Project</h3>
 				<div id="project-full-description" class="space-y-5 text-neutral-300 leading-relaxed text-lg">
 					<p>Loading project description...</p>
 				</div>
@@ -335,9 +357,8 @@
 		</section>
 
 		<!-- Gallery This Project -->
-		<section class="max-w-6xl mx-auto px-6 mb-16">
+		<section class="max-w-5xl mx-auto mb-16">
 			<div data-aos="fade">
-				<h3 class="section-title">Gallery This Project</h3>
 				<div id="project-gallery-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
 					<!-- Gallery grid will be populated by JavaScript -->
 				</div>
@@ -345,13 +366,12 @@
 		</section>
 
 		<!-- Project Details -->
-		<section class="max-w-6xl mx-auto px-6 mb-16">
+		<section class="max-w-5xl mx-auto mb-16">
 			<div class="grid lg:grid-cols-3 gap-8">
 				<!-- Main Content Column -->
 				<div class="lg:col-span-2 space-y-8">
 					<!-- Challenge Section -->
 					<div id="challenge-section" data-aos="fade">
-						<h3 class="section-title">Challenge</h3>
 						<p id="project-challenge" class="text-neutral-300 leading-relaxed">
 							Loading challenge description...
 						</p>
@@ -359,7 +379,6 @@
 
 					<!-- Solutions Section -->
 					<div id="solutions-section" data-aos="fade">
-						<h3 class="section-title">Solutions</h3>
 						<p id="project-solutions" class="text-neutral-300 leading-relaxed">
 							Loading solutions description...
 						</p>
@@ -367,8 +386,7 @@
 
 					<!-- Technologies Section -->
 					<div id="technologies-section" data-aos="fade">
-						<h3 class="section-title">Technologies Used</h3>
-						<div id="project-technologies" class="flex flex-wrap gap-2">
+						<div id="project-technologies" class="flex flex-wrap gap-3">
 							<!-- Technologies will be populated by JavaScript -->
 						</div>
 					</div>
@@ -378,7 +396,6 @@
 				<div class="space-y-6">
 					<!-- Project Info -->
 					<div data-aos="fade">
-						<h3 class="section-title">Project Info</h3>
 						<div class="space-y-4">
 							<div id="category-info">
 								<span class="text-neutral-500 text-sm">Category</span>
@@ -401,7 +418,6 @@
 
 					<!-- Deliverables -->
 					<div id="deliverables-section" data-aos="fade">
-						<h3 class="section-title">Deliverables</h3>
 						<ul id="project-deliverables" class="space-y-2">
 							<!-- Deliverables will be populated by JavaScript -->
 						</ul>
@@ -411,17 +427,17 @@
 		</section>
 
 		<!-- Call to Action -->
-		<section class="max-w-6xl mx-auto px-6 py-16 text-center">
-			<div class="bg-gradient-to-r from-primary/10 to-purple-600/10 rounded-2xl p-12 border border-primary/20" data-aos="fade">
+		<section class="max-w-5xl mx-auto py-16 text-center">
+			<div class="bg-neutral-900 rounded-2xl p-12" data-aos="fade">
 				<h3 class="text-3xl font-bold mb-4">Interested in Working Together?</h3>
 				<p class="text-neutral-400 mb-8 max-w-2xl mx-auto">
 					Let's discuss your next project and bring your ideas to life with cutting-edge technology and innovative solutions.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-purple-600 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105">
+					<a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 bg-white hover:bg-neutral-300 text-black font-semibold rounded-full transition">
 						Get In Touch
 					</a>
-					<a href="index.html#work" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-neutral-600 hover:border-primary text-white font-semibold rounded-full transition-all duration-300 hover:bg-primary/10">
+					<a href="index.html#work" class="inline-flex items-center justify-center px-8 py-3 bg-transparent border border-white hover:border-white text-white hover:bg-white hover:text-black font-medium rounded-full transition">
 						View More Projects
 					</a>
 				</div>
@@ -432,37 +448,38 @@
 	<!-- Lightbox -->
 	<div id="lightbox" class="fixed inset-0 bg-black/90 backdrop-blur-lg z-[9999] flex items-center justify-center opacity-0 invisible transition-all duration-300">
 		<!-- Close Button - Outside -->
-		<button id="lightbox-close" class="absolute top-8 right-8 w-14 h-14 bg-black/60 backdrop-blur-lg border border-white/30 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-110 z-[10001]">
+		<button id="lightbox-close" class="absolute top-8 right-8 w-12 h-12 bg-neutral-900/60 backdrop-blur-lg text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/15 z-[10001]">
 			<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
 			</svg>
 		</button>
 		
 		<!-- Previous Button - Outside -->
-		<button id="lightbox-prev" class="absolute top-1/2 -translate-y-1/2 left-8 w-14 h-14 bg-black/60 backdrop-blur-lg border border-white/30 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-110 z-[10001]">
+		<button id="lightbox-prev" class="absolute top-1/2 -translate-y-1/2 left-8 w-12 h-12 bg-neutral-900/60 backdrop-blur-lg text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/15 z-[10001]">
 			<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
 			</svg>
 		</button>
 		
 		<!-- Next Button - Outside -->
-		<button id="lightbox-next" class="absolute top-1/2 -translate-y-1/2 right-8 w-14 h-14 bg-black/60 backdrop-blur-lg border border-white/30 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-110 z-[10001]">
+		<button id="lightbox-next" class="absolute top-1/2 -translate-y-1/2 right-8 w-12 h-12 bg-neutral-900/60 backdrop-blur-lg text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/15 z-[10001]">
 			<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
 			</svg>
 		</button>
 		
-		<!-- Image Container -->
+		<!-- Media Container -->
 		<div class="relative max-w-[75vw] max-h-[75vh] flex items-center justify-center">
-			<img id="lightbox-image" class="max-w-full max-h-full object-contain transition-transform duration-300 cursor-zoom-in" src="" alt="">
+			<img id="lightbox-image" class="max-w-full max-h-full object-contain transition-transform duration-300 cursor-zoom-in hidden" src="" alt="">
+			<video id="lightbox-video" class="max-w-full max-h-full object-contain hidden" src="" autoplay muted loop></video>
 		</div>
 		
 		<!-- Counter - Outside -->
-		<div id="lightbox-counter" class="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-lg border border-white/30 text-white px-6 py-3 rounded-full text-sm font-medium z-[10001]">1 / 6</div>
+		<div id="lightbox-counter" class="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-lg text-white px-6 py-3 rounded-full text-sm font-medium z-[10001]">1 / 6</div>
 	</div>
 
 	<!-- Footer -->
-	<footer class="py-8 px-6 bg-neutral-900 text-neutral-400">
+	<footer class="py-4 px-6 bg-neutral-950 text-neutral-600">
 		<div class="max-w-6xl mx-auto text-center">
 			<p>© 2025 Tanbopp. All rights reserved.</p>
 		</div>
@@ -481,24 +498,70 @@
 
 	<!-- Project Detail JavaScript -->
 	<script>
+		// Utility functions for media detection
+		function getMediaType(url) {
+			const videoExtensions = ['.mp4', '.webm', '.ogv', '.mov', '.avi', '.mkv', '.m4v'];
+			const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp'];
+			
+			const lowercaseUrl = url.toLowerCase();
+			
+			// Check for video extensions
+			if (videoExtensions.some(ext => lowercaseUrl.includes(ext))) {
+				return 'video';
+			}
+			
+			// Check for image extensions (including GIF)
+			if (imageExtensions.some(ext => lowercaseUrl.includes(ext))) {
+				return 'image';
+			}
+			
+			// Check for GIF specifically (can be treated as video for autoplay)
+			if (lowercaseUrl.includes('.gif')) {
+				return 'gif';
+			}
+			
+			// Default to image if uncertain
+			return 'image';
+		}
+
+		function createMediaElement(url, alt = '', className = '', autoplay = true) {
+			const mediaType = getMediaType(url);
+			
+			if (mediaType === 'video') {
+				const video = document.createElement('video');
+				video.src = url;
+				video.alt = alt;
+				video.className = className;
+				if (autoplay) {
+					video.autoplay = true;
+					video.muted = true; // Required for autoplay in most browsers
+					video.loop = true;
+				}
+				video.playsInline = true; // For mobile compatibility
+				return video;
+			} else {
+				const img = document.createElement('img');
+				img.src = url;
+				img.alt = alt;
+				img.className = className;
+				return img;
+			}
+		}
+
 		// Wait for DOM to be ready
 		document.addEventListener('DOMContentLoaded', function() {
-			console.log('🚀 Initializing project detail page...');
 			
 			// Debug: Check if data.js loaded
-			console.log('📊 window.projectsData:', window.projectsData);
 			
 			// Get project ID from URL parameters
 			const urlParams = new URLSearchParams(window.location.search);
 			const projectId = urlParams.get('id');
-			console.log('🔍 Looking for project ID:', projectId);
 
 			// Get applications data from global scope or fallback
 			let applications = window.projectsData || [];
 			
 			// Fallback data if external file fails to load
 			if (!applications || applications.length === 0) {
-				console.warn('⚠️ External data.js not loaded, using fallback data');
 				applications = [
 					{
 						id: "shopify-plus",
@@ -523,8 +586,10 @@
 						solutions: "Implemented microservices architecture with Redis caching, optimized database queries, and used CDN for static assets. Added automated scaling on AWS to handle traffic spikes.",
 						gallery: [
 							"https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
 							"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-							"https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
+							"https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif",
 							"https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
 							"https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
 							"https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
@@ -532,8 +597,8 @@
 						link: "project-detail.html?id=shopify-plus"
 					},
 					{
-						id: "fitness-tracker",
-						title: "FitTrack Mobile App",
+						id: "tokoku",
+						title: "TokoKu - Point of Sale App",
 						description: "A comprehensive fitness tracking application with real-time workout monitoring, nutrition planning, and social features to connect with other fitness enthusiasts.",
 						fullDescription: [
 							"FitTrack revolutionizes personal fitness management by combining advanced health monitoring with social engagement features. The app provides detailed workout analytics, personalized nutrition recommendations, and connects users with a community of fitness enthusiasts.",
@@ -557,8 +622,9 @@
 							"https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
 							"https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
 							"https://images.unsplash.com/photo-1434596922112-19c563067271?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-							"https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-							"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+							"https://sherlyphangestu.github.io/Assets/porto/Chamelure/Chamelure%20-%20WarmUp%20Preparation%20GIF.gif",
+							"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+							"https://sherlyphangestu.github.io/Assets/porto/Chamelure/Chamelure%20-%20Perceptual%20Mini%20Game%20GIF.gif"
 						],
 						link: "project-detail.html?id=fitness-tracker"
 					},
@@ -596,8 +662,6 @@
 				];
 			}
 			
-			console.log('📊 Total projects loaded:', applications.length);
-
 			// Find the project data
 			const project = applications.find(app => app.id === projectId);
 			console.log('✅ Project found:', project ? project.title : 'NOT FOUND');
@@ -632,16 +696,26 @@
 				const galleryDots = document.getElementById('gallery-dots');
 
 				if (!galleryTrack || !galleryDots) {
-					console.error('❌ Gallery elements not found');
 					return;
 				}
 
-				// Create gallery slides
-				galleryTrack.innerHTML = gallery.map(image => `
-					<div class="gallery-slide aspect-[16/5]">
-						<img src="${image}" alt="${project.title}" class="w-full h-full object-cover">
-					</div>
-				`).join('');
+				// Create gallery slides with support for different media types
+				galleryTrack.innerHTML = gallery.map((mediaUrl, index) => {
+					const mediaType = getMediaType(mediaUrl);
+					let mediaElement = '';
+					
+					if (mediaType === 'video') {
+						mediaElement = `<video src="${mediaUrl}" alt="${project.title}" class="w-full h-full object-cover" autoplay muted loop playsinline></video>`;
+					} else {
+						mediaElement = `<img src="${mediaUrl}" alt="${project.title}" class="w-full h-full object-cover">`;
+					}
+					
+					return `
+						<div class="gallery-slide aspect-[16/5]">
+							${mediaElement}
+						</div>
+					`;
+				}).join('');
 
 				// Create gallery dots
 				galleryDots.innerHTML = gallery.map((_, index) => `
@@ -667,7 +741,6 @@
 					if (dotsContainer) dotsContainer.style.display = 'none';
 				}
 
-				console.log('✅ Gallery initialized with', gallery.length, 'images');
 			}
 
 			function goToSlide(slideIndex) {
@@ -743,7 +816,6 @@
 
 			// Populate project data
 			function populateProjectData() {
-				console.log('📝 Populating project data for:', project.title);
 				
 				// Basic info
 				const titleEl = document.getElementById('project-title');
@@ -860,7 +932,6 @@
 				// Update page title
 				document.title = `${project.title} - Tanbopp Portfolio`;
 				
-				console.log('✅ Project data populated successfully');
 			}
 
 			// Initialize gallery grid
@@ -869,12 +940,31 @@
 				if (!galleryGridContainer) return;
 
 				const gallery = project.gallery || [project.image];
+				const isOdd = gallery.length % 2 !== 0;
 				
-				galleryGridContainer.innerHTML = gallery.map((image, index) => `
-					<div class="gallery-grid-item" data-aos="fade" data-index="${index}">
-						<img src="${image}" alt="${project.title} - Image ${index + 1}" class="w-full h-full object-cover">
-					</div>
-				`).join('');
+				galleryGridContainer.innerHTML = gallery.map((mediaUrl, index) => {
+					// Jika jumlah media ganjil dan ini adalah media terakhir, beri span 2
+					const isLastItemInOddCount = isOdd && index === gallery.length - 1;
+					const spanClass = isLastItemInOddCount ? 'md:col-span-2' : '';
+					const mediaType = getMediaType(mediaUrl);
+					
+					let mediaElement = '';
+					let indicator = '';
+					
+					if (mediaType === 'video') {
+						mediaElement = `<video src="${mediaUrl}" alt="${project.title} - Video ${index + 1}" class="w-full h-auto object-cover aspect-[16/9] hover:scale-105 transition-transform duration-300 cursor-pointer" autoplay muted loop playsinline></video>`;
+						indicator = '<div class="media-indicator">VIDEO</div>';
+					} else {
+						mediaElement = `<img src="${mediaUrl}" alt="${project.title} - Image ${index + 1}" class="w-full h-auto object-cover aspect-[16/9] hover:scale-105 transition-transform duration-300 cursor-pointer">`;
+					}
+					
+					return `
+						<div class="gallery-grid-item ${spanClass}" data-aos="fade" data-index="${index}">
+							${mediaElement}
+							${indicator}
+						</div>
+					`;
+				}).join('');
 
 				// Add click event to open lightbox
 				const gridItems = galleryGridContainer.querySelectorAll('.gallery-grid-item');
@@ -884,7 +974,6 @@
 					});
 				});
 
-				console.log('✅ Gallery grid initialized with', gallery.length, 'images');
 			}
 
 			// Lightbox functionality
@@ -894,18 +983,38 @@
 			function openLightbox(index) {
 				const lightbox = document.getElementById('lightbox');
 				const lightboxImage = document.getElementById('lightbox-image');
+				const lightboxVideo = document.getElementById('lightbox-video');
 				const gallery = project.gallery || [project.image];
+				const mediaUrl = gallery[index];
+				const mediaType = getMediaType(mediaUrl);
 				
 				lightboxIndex = index;
-				lightboxImage.src = gallery[index];
-				lightboxImage.alt = `${project.title} - Image ${index + 1}`;
+				
+				// Hide both elements first
+				lightboxImage.classList.add('hidden');
+				lightboxVideo.classList.add('hidden');
+				
+				// Show appropriate element based on media type
+				if (mediaType === 'video') {
+					lightboxVideo.src = mediaUrl;
+					lightboxVideo.classList.remove('hidden');
+					// Ensure video autoplays in lightbox
+					lightboxVideo.autoplay = true;
+					lightboxVideo.muted = true;
+					lightboxVideo.loop = true;
+					lightboxVideo.load(); // Reload video to ensure autoplay works
+				} else {
+					lightboxImage.src = mediaUrl;
+					lightboxImage.alt = `${project.title} - Image ${index + 1}`;
+					lightboxImage.classList.remove('hidden');
+				}
 				
 				updateLightboxCounter();
 				lightbox.classList.remove('opacity-0', 'invisible');
 				lightbox.classList.add('opacity-100', 'visible');
 				document.body.style.overflow = 'hidden'; // Prevent scrolling
 				
-				// Hide navigation if only one image
+				// Hide navigation if only one media item
 				const prevBtn = document.getElementById('lightbox-prev');
 				const nextBtn = document.getElementById('lightbox-next');
 				if (gallery.length <= 1) {
@@ -920,6 +1029,7 @@
 			function closeLightbox() {
 				const lightbox = document.getElementById('lightbox');
 				const lightboxImage = document.getElementById('lightbox-image');
+				const lightboxVideo = document.getElementById('lightbox-video');
 				
 				lightbox.classList.add('opacity-0', 'invisible');
 				lightbox.classList.remove('opacity-100', 'visible');
@@ -930,26 +1040,50 @@
 				lightboxImage.style.removeProperty('--zoom-x');
 				lightboxImage.style.removeProperty('--zoom-y');
 				isZoomed = false;
+				
+				// Pause and reset video
+				if (!lightboxVideo.classList.contains('hidden')) {
+					lightboxVideo.pause();
+					lightboxVideo.currentTime = 0;
+				}
 			}
 
 			function nextLightboxImage() {
 				const gallery = project.gallery || [project.image];
 				lightboxIndex = (lightboxIndex + 1) % gallery.length;
-				updateLightboxImage();
+				updateLightboxMedia();
 			}
 
 			function prevLightboxImage() {
 				const gallery = project.gallery || [project.image];
 				lightboxIndex = (lightboxIndex - 1 + gallery.length) % gallery.length;
-				updateLightboxImage();
+				updateLightboxMedia();
 			}
 
-			function updateLightboxImage() {
+			function updateLightboxMedia() {
 				const lightboxImage = document.getElementById('lightbox-image');
+				const lightboxVideo = document.getElementById('lightbox-video');
 				const gallery = project.gallery || [project.image];
+				const mediaUrl = gallery[lightboxIndex];
+				const mediaType = getMediaType(mediaUrl);
 				
-				lightboxImage.src = gallery[lightboxIndex];
-				lightboxImage.alt = `${project.title} - Image ${lightboxIndex + 1}`;
+				// Hide both elements first
+				lightboxImage.classList.add('hidden');
+				lightboxVideo.classList.add('hidden');
+				
+				// Show appropriate element based on media type
+				if (mediaType === 'video') {
+					lightboxVideo.src = mediaUrl;
+					lightboxVideo.classList.remove('hidden');
+					lightboxVideo.autoplay = true;
+					lightboxVideo.muted = true;
+					lightboxVideo.loop = true;
+					lightboxVideo.load(); // Reload video to ensure autoplay works
+				} else {
+					lightboxImage.src = mediaUrl;
+					lightboxImage.alt = `${project.title} - Image ${lightboxIndex + 1}`;
+					lightboxImage.classList.remove('hidden');
+				}
 				
 				// Reset zoom
 				lightboxImage.classList.remove('lightbox-zoomed');
@@ -971,6 +1105,11 @@
 
 			function toggleZoom(event) {
 				const lightboxImage = document.getElementById('lightbox-image');
+				
+				// Only allow zoom for images, not videos
+				if (lightboxImage.classList.contains('hidden')) {
+					return;
+				}
 				
 				if (isZoomed) {
 					lightboxImage.classList.remove('lightbox-zoomed');
@@ -1103,10 +1242,11 @@
 
 			// Navbar scroll behavior
 			let lastScrollTop = 0;
+			let ticking = false;
 			const mainNav = document.getElementById('main-nav');
 			const subNav = document.getElementById('sub-nav');
 			
-			window.addEventListener('scroll', function() {
+			function updateNavigation() {
 				const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 				const viewportHeight = window.innerHeight; // 100vh
 				
@@ -1127,14 +1267,24 @@
 				if (subNav) {
 					if (scrollTop > viewportHeight) {
 						// Show sub nav with slide down animation when scrolled past 100vh
-						subNav.style.transform = 'translateY(0)';
+						subNav.classList.remove('sub-nav-hidden');
+						subNav.classList.add('sub-nav-visible');
 					} else {
 						// Hide sub nav with slide up animation when above 100vh
-						subNav.style.transform = 'translateY(-100%)';
+						subNav.classList.remove('sub-nav-visible');
+						subNav.classList.add('sub-nav-hidden');
 					}
 				}
 				
 				lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+				ticking = false;
+			}
+			
+			window.addEventListener('scroll', function() {
+				if (!ticking) {
+					requestAnimationFrame(updateNavigation);
+					ticking = true;
+				}
 			});
 
 			// Update sub nav title with project title
@@ -1152,7 +1302,6 @@
 			initializeGallery();
 			initializeGalleryGrid();
 			
-			console.log('🎉 Project detail page initialized successfully!');
 		});
 	</script>
 </body>

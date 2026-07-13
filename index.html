@@ -3,17 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Sultan Rahmatulloh · Portfolio</title>
-    
-    <!-- Google Fonts: Merriweather (Serif) & Plus Jakarta Sans (Sans-serif) -->
+
+    <!-- === PRIMARY META TAGS === -->
+    <title>Sultan Rahmatulloh (Tanbopp) — Software Developer &amp; Graphic Designer di Jakarta</title>
+    <meta name="description" content="Portfolio Sultan Rahmatulloh — Software Developer, Graphic Designer &amp; AI Native Engineer. Berbasis di Jakarta. Founder Centrova Teknologi Indonesia. SMK Jakarta Pusat 1 (Administrasi Perkantoran).">
+    <meta name="keywords" content="Sultan Rahmatulloh, Tanbopp, portfolio, software developer, graphic designer, Jakarta, Centrova, AI engineer, full-stack developer, UI/UX designer, SMK Jakarta Pusat 1, administrasi perkantoran">
+    <meta name="author" content="Sultan Rahmatulloh">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="Indonesian">
+    <meta name="geo.region" content="ID-JK">
+    <meta name="geo.placename" content="Jakarta Barat, DKI Jakarta">
+    <meta name="theme-color" content="#18181b">
+
+    <!-- === CANONICAL === -->
+    <link rel="canonical" href="https://tanbopp.github.io/">
+
+    <!-- === OPEN GRAPH / FACEBOOK === -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sultan Rahmatulloh (Tanbopp) — Software Developer &amp; Graphic Designer">
+    <meta property="og:description" content="Portfolio Sultan Rahmatulloh — Software Developer, Graphic Designer &amp; AI Native Engineer. Founder Centrova Teknologi Indonesia.">
+    <meta property="og:url" content="https://tanbopp.github.io/">
+    <meta property="og:site_name" content="Tanbopp Portfolio">
+    <meta property="og:image" content="https://tanbopp.github.io/images.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- === TWITTER CARDS === -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sultan Rahmatulloh (Tanbopp) — Software Developer &amp; Graphic Designer">
+    <meta name="twitter:description" content="Portfolio Sultan Rahmatulloh — Software Developer, Graphic Designer &amp; AI Native Engineer. Founder Centrova Teknologi Indonesia.">
+    <meta name="twitter:image" content="https://tanbopp.github.io/images.png">
+
+    <!-- === STRUCTURED DATA (JSON-LD) — Person + WebSite === -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sultan Rahmatulloh",
+        "alternateName": "Tanbopp",
+        "jobTitle": ["Software Developer", "Graphic Designer", "AI Native Engineer"],
+        "url": "https://tanbopp.github.io/",
+        "image": "https://tanbopp.github.io/images.png",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jakarta Barat",
+            "addressRegion": "DKI Jakarta",
+            "addressCountry": "ID"
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "SMK Jakarta Pusat 1",
+            "description": "Administrasi Perkantoran"
+        },
+        "knowsAbout": ["Software Development", "Graphic Design", "UI/UX Design", "Photography", "Full-Stack Development"],
+        "sameAs": [
+            "https://www.linkedin.com/in/tanbopp/"
+        ],
+        "affiliation": [
+            {
+                "@type": "Organization",
+                "name": "Centrova Teknologi Indonesia",
+                "jobTitle": "Founder & AI Native Engineer"
+            },
+            {
+                "@type": "Organization",
+                "name": "Otoproject Group",
+                "jobTitle": "Designer"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Tanbopp Portfolio",
+        "url": "https://tanbopp.github.io/",
+        "description": "Portfolio pribadi Sultan Rahmatulloh — Software Developer, Graphic Designer & AI Native Engineer",
+        "author": {
+            "@type": "Person",
+            "name": "Sultan Rahmatulloh"
+        },
+        "inLanguage": "id"
+    }
+    </script>
+
+    <!-- === FAVICON === -->
+    <link rel="icon" type="image/png" href="images.png">
+    <link rel="apple-touch-icon" href="images.png">
+
+    <!-- === GOOGLE FONTS === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- === DNS PREFETCH === -->
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
-    <!-- Tailwind Custom Configuration -->
+    <!-- === STYLES === -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -35,7 +128,7 @@
     <!-- Navigasi (tidak diubah sesuai permintaan) -->
     <nav class="bg-zinc-900 w-full sticky top-0 z-50">
         <div class="w-full max-w-6xl mx-auto flex justify-center items-center h-14">
-            <a href="#" class="text-white text-3xl font-merriweather font-extrabold">Tanbopp</a>
+            <a href="/" class="text-white text-3xl font-merriweather font-extrabold" title="Tanbopp — Beranda" aria-label="Tanbopp — Beranda">Tanbopp</a>
         </div>
     </nav>
 
@@ -45,13 +138,13 @@
         <section class="w-full flex flex-col md:flex-row justify-between border border-neutral-300 bg-white mb-12">
             <div class="w-full p-8 md:p-14">
                 <h1 class="text-5xl md:text-7xl mb-6">Sultan <br> Rahmatulloh</h1>
-                <p class="font-plusjakarta text-xl tracking-tight">Software Developer, Graphic Designer</p>
+                <p class="font-plusjakarta text-xl tracking-tight">Software Developer &amp; Graphic Designer berbasis di Jakarta</p>
 
                 <div class="mt-12 text-[15px]">
                     <span class="font-semibold">Works:</span>
                     <ul class="font-plusjakarta mt-1">
-                        <li><a href="#" class="text-blue-700 hover:underline">Centrova ID</a> (Developer)</li>
-                        <li><a href="#" class="text-blue-700 hover:underline">Otoproject</a> (Designer)</li>
+                        <li><a href="#" class="text-blue-700 hover:underline" title="Centrova Teknologi Indonesia — AI Native Development" aria-label="Centrova Teknologi Indonesia">Centrova ID</a> (Developer)</li>
+                        <li><a href="#" class="text-blue-700 hover:underline" title="Otoproject Group — Automotive Design &amp; Photography" aria-label="Otoproject Group">Otoproject</a> (Designer)</li>
                     </ul>
                 </div>
             </div>
@@ -78,7 +171,7 @@
                 <div class="mb-10">
                     <h2 class="font-bold text-lg mb-2">Contact</h2>
                     <p class="font-plusjakarta font-medium">Jakarta Barat, DKI Jakarta</p>
-                    <a href="https://www.linkedin.com/in/tanbopp/" class="font-plusjakarta text-blue-600 hover:underline font-medium">www.linkedin.com/tanbopp</a>
+                    <a href="https://www.linkedin.com/in/tanbopp/" class="font-plusjakarta text-blue-600 hover:underline font-medium" title="LinkedIn Sultan Rahmatulloh" aria-label="Kunjungi profil LinkedIn Sultan Rahmatulloh" rel="me">www.linkedin.com/tanbopp</a>
                 </div>
                 <div class="mb-10">
                     <h2 class="font-bold text-lg mb-2">Top Skills</h2>
@@ -99,9 +192,9 @@
             <div class="mb-14">
                 <h3 class="text-2xl font-bold font-plusjakarta border-b border-neutral-300 pb-3 mb-8">Web & App</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
-                    <a href="#" class="group block">
+                    <a href="#" class="group block" title="Centrova Dashboard — Detail Proyek" aria-label="Centrova Dashboard — Proyek Web &amp; App">
                         <div class="flex flex-col w-full">
-                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Web Project" class="w-full aspect-video object-cover border border-neutral-200">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Centrova Dashboard — Tampilan aplikasi web dashboard manajemen" class="w-full aspect-video object-cover border border-neutral-200" loading="lazy">
                             <div class="py-6">
                                 <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">Centrova Dashboard</h4>
                                 <div class="w-full overflow-x-hidden">
@@ -115,9 +208,9 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="group block">
+                    <a href="#" class="group block" title="Otoproject Mobile — Detail Proyek" aria-label="Otoproject Mobile — Proyek Web &amp; App">
                         <div class="flex flex-col w-full">
-                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="App Project" class="w-full aspect-video object-cover border border-neutral-200">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Otoproject Mobile — Aplikasi mobile Flutter untuk otomotif" class="w-full aspect-video object-cover border border-neutral-200" loading="lazy">
                             <div class="py-6">
                                 <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">Otoproject Mobile</h4>
                                 <div class="w-full overflow-x-hidden">
@@ -130,9 +223,9 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="group block">
+                    <a href="#" class="group block" title="AI Content Suite — Detail Proyek" aria-label="AI Content Suite — Proyek Web &amp; App">
                         <div class="flex flex-col w-full">
-                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Web Project" class="w-full aspect-video object-cover border border-neutral-200">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="AI Content Suite — Platform konten berbasis AI dengan Python dan FastAPI" class="w-full aspect-video object-cover border border-neutral-200" loading="lazy">
                             <div class="py-6">
                                 <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">AI Content Suite</h4>
                                 <div class="w-full overflow-x-hidden">
@@ -152,9 +245,9 @@
             <div class="mb-14">
                 <h3 class="text-2xl font-bold font-plusjakarta border-b border-neutral-300 pb-3 mb-8">UI/UX Design</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
-                    <a href="#" class="group block">
+                    <a href="#" class="group block" title="Fintech App Redesign — Detail Proyek" aria-label="Fintech App Redesign — Proyek UI/UX Design">
                         <div class="flex flex-col w-full">
-                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="UI Design" class="w-full aspect-video object-cover border border-neutral-200">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Fintech App Redesign — Desain UI aplikasi fintech menggunakan Figma" class="w-full aspect-video object-cover border border-neutral-200" loading="lazy">
                             <div class="py-6">
                                 <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">Fintech App Redesign</h4>
                                 <div class="w-full overflow-x-hidden">
@@ -167,9 +260,9 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="group block">
+                    <a href="#" class="group block" title="E‑commerce Journey — Detail Proyek" aria-label="E‑commerce Journey — Proyek UI/UX Design">
                         <div class="flex flex-col w-full">
-                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="UX Case Study" class="w-full aspect-video object-cover border border-neutral-200">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="E‑commerce Journey — Studi UX dengan user research dan wireframe" class="w-full aspect-video object-cover border border-neutral-200" loading="lazy">
                             <div class="py-6">
                                 <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">E‑commerce Journey</h4>
                                 <div class="w-full overflow-x-hidden">
@@ -182,9 +275,9 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="group block">
+                    <a href="#" class="group block" title="SaaS Dashboard — Detail Proyek" aria-label="SaaS Dashboard — Proyek UI/UX Design">
                         <div class="flex flex-col w-full">
-                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Dashboard UI" class="w-full aspect-video object-cover border border-neutral-200">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="SaaS Dashboard — Desain dashboard SaaS dengan Figma auto layout" class="w-full aspect-video object-cover border border-neutral-200" loading="lazy">
                             <div class="py-6">
                                 <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">SaaS Dashboard</h4>
                                 <div class="w-full overflow-x-hidden">
@@ -204,9 +297,9 @@
             <div class="mb-14">
                 <h3 class="text-2xl font-bold font-plusjakarta border-b border-neutral-300 pb-3 mb-8">Graphic Design</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
-                    <a href="#" class="group block">
+                    <a href="#" class="group block" title="Automotive Catalogue — Detail Proyek" aria-label="Automotive Catalogue — Proyek Graphic Design">
                         <div class="flex flex-col w-full">
-                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Branding" class="w-full aspect-video object-cover border border-neutral-200">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Automotive Catalogue — Katalog otomotif dengan InDesign dan Photoshop" class="w-full aspect-video object-cover border border-neutral-200" loading="lazy">
                             <div class="py-6">
                                 <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">Automotive Catalogue</h4>
                                 <div class="w-full overflow-x-hidden">
@@ -219,9 +312,9 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="group block">
+                    <a href="#" class="group block" title="Product Packaging — Detail Proyek" aria-label="Product Packaging — Proyek Graphic Design">
                         <div class="flex flex-col w-full">
-                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Packaging" class="w-full aspect-video object-cover border border-neutral-200">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Product Packaging — Desain kemasan produk dengan Illustrator dan Dimension" class="w-full aspect-video object-cover border border-neutral-200" loading="lazy">
                             <div class="py-6">
                                 <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">Product Packaging</h4>
                                 <div class="w-full overflow-x-hidden">
@@ -234,9 +327,9 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="group block">
+                    <a href="#" class="group block" title="3D Product Render — Detail Proyek" aria-label="3D Product Render — Proyek Graphic Design">
                         <div class="flex flex-col w-full">
-                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="3D Model" class="w-full aspect-video object-cover border border-neutral-200">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="3D Product Render — Rendering produk 3D menggunakan Blender dan Affinity" class="w-full aspect-video object-cover border border-neutral-200" loading="lazy">
                             <div class="py-6">
                                 <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">3D Product Render</h4>
                                 <div class="w-full overflow-x-hidden">

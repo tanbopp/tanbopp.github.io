@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-slate-50 text-slate-800">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sultan Rahmatulloh · Portfolio</title>
+    
+    <!-- Google Fonts: Merriweather (Serif) & Plus Jakarta Sans (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        plusjakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        merriweather: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Chart.js untuk Spider Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-neutral-50 font-merriweather text-neutral-800">
+
+    <!-- Navigasi (tidak diubah sesuai permintaan) -->
+    <nav class="bg-zinc-900 w-full sticky top-0 z-50">
+        <div class="w-full max-w-6xl mx-auto flex justify-center items-center h-14">
+            <a href="#" class="text-white text-3xl font-merriweather font-extrabold">Tanbopp</a>
+        </div>
+    </nav>
+
+    <div class="w-full max-w-6xl mx-auto min-h-screen my-4 px-4 md:px-0">
+        
+        <!-- Header / Profile Section (Tidak diubah) -->
+        <section class="w-full flex flex-col md:flex-row justify-between border border-neutral-300 bg-white mb-12">
+            <div class="w-full p-8 md:p-14">
+                <h1 class="text-5xl md:text-7xl mb-6">Sultan <br> Rahmatulloh</h1>
+                <p class="font-plusjakarta text-xl tracking-tight">Software Developer, Graphic Designer</p>
+
+                <div class="mt-12 text-[15px]">
+                    <span class="font-semibold">Works:</span>
+                    <ul class="font-plusjakarta mt-1">
+                        <li><a href="#" class="text-blue-700 hover:underline">Centrova ID</a> (Developer)</li>
+                        <li><a href="#" class="text-blue-700 hover:underline">Otoproject</a> (Designer)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="h-[320px] md:h-[420px] w-full md:w-auto aspect-square bg-neutral-400 flex-shrink-0">
+                <img src="images.png" alt="Sultan Rahmatulloh (Tanbopp)" class="w-full h-full object-cover">
+            </div>
+        </section>
+
+        <!-- About & Contact Section (Tidak diubah) -->
+        <section class="w-full grid grid-cols-1 md:grid-cols-5 border border-neutral-300 bg-white p-8 md:p-14 mb-12">
+            <div class="col-span-3 md:border-r border-neutral-300 md:pr-10 mb-8 md:mb-0">
+                <h2 class="font-bold text-lg mb-2">About Me</h2>
+                <p class="w-full text-sm md:text-base leading-relaxed">
+                    A Software Engineer and Graphic Designer based in Jakarta, Indonesia, currently serving as Founder & AI Native Engineer at Centrova Teknologi Indonesia, where I build software solutions from the ground up using an AI-driven development approach.
+                    <br><br>
+                    My journey began in graphic design and automotive product photography at Otoproject Group, where I handled the creative process end-to-end — from professional vehicle photography, photo editing, and catalogue design, to packaging design and 3D product modeling. This experience sharpened my attention to detail, composition, and brand consistency in every piece of work I produce.
+                    <br><br>
+                    My interests later expanded into application development, particularly within the Flutter ecosystem for mobile and web development. I enjoy solving technical problems and delivering solutions that are not only functional, but also scalable and maintainable in the long run.
+                    <br><br>
+                    This combination of visual design background and software engineering makes me comfortable working across different roles — whether as a UI Designer focused on user experience, or as a FullStack Developer who brings that vision to life. I believe cross-functional collaboration is key to building products that truly meet both business goals and user needs.
+                </p>
+            </div>
+            <div class="col-span-2 md:pl-10">
+                <div class="mb-10">
+                    <h2 class="font-bold text-lg mb-2">Contact</h2>
+                    <p class="font-plusjakarta font-medium">Jakarta Barat, DKI Jakarta</p>
+                    <a href="https://www.linkedin.com/in/tanbopp/" class="font-plusjakarta text-blue-600 hover:underline font-medium">www.linkedin.com/tanbopp</a>
+                </div>
+                <div class="mb-10">
+                    <h2 class="font-bold text-lg mb-2">Top Skills</h2>
+                    <ul class="font-plusjakarta font-medium">
+                        <li>Full-Stack Development</li>
+                        <li>UI/UX Design</li>
+                        <li>Photography</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS SECTION (DIPECAH 3 ROW) ===== -->
+        <section class="w-full max-w-6xl mx-auto mb-16">
+            <h2 class="text-4xl font-extrabold mb-12">Projects</h2>
+            
+            <!-- Row 1: Web & App -->
+            <div class="mb-14">
+                <h3 class="text-2xl font-bold font-plusjakarta border-b border-neutral-300 pb-3 mb-8">Web & App</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
+                    <a href="#" class="group block">
+                        <div class="flex flex-col w-full">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Web Project" class="w-full aspect-video object-cover border border-neutral-200">
+                            <div class="py-6">
+                                <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">Centrova Dashboard</h4>
+                                <div class="w-full overflow-x-hidden">
+                                    <div class="flex gap-2 w-auto flex-wrap">
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Laravel</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">React</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Tailwind</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">MySQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="group block">
+                        <div class="flex flex-col w-full">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="App Project" class="w-full aspect-video object-cover border border-neutral-200">
+                            <div class="py-6">
+                                <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">Otoproject Mobile</h4>
+                                <div class="w-full overflow-x-hidden">
+                                    <div class="flex gap-2 w-auto flex-wrap">
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Flutter</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Firebase</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">GetX</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="group block">
+                        <div class="flex flex-col w-full">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Web Project" class="w-full aspect-video object-cover border border-neutral-200">
+                            <div class="py-6">
+                                <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">AI Content Suite</h4>
+                                <div class="w-full overflow-x-hidden">
+                                    <div class="flex gap-2 w-auto flex-wrap">
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Python</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">FastAPI</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">OpenAI</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Row 2: UI/UX Design -->
+            <div class="mb-14">
+                <h3 class="text-2xl font-bold font-plusjakarta border-b border-neutral-300 pb-3 mb-8">UI/UX Design</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
+                    <a href="#" class="group block">
+                        <div class="flex flex-col w-full">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="UI Design" class="w-full aspect-video object-cover border border-neutral-200">
+                            <div class="py-6">
+                                <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">Fintech App Redesign</h4>
+                                <div class="w-full overflow-x-hidden">
+                                    <div class="flex gap-2 w-auto flex-wrap">
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Figma</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Prototyping</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Design System</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="group block">
+                        <div class="flex flex-col w-full">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="UX Case Study" class="w-full aspect-video object-cover border border-neutral-200">
+                            <div class="py-6">
+                                <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">E‑commerce Journey</h4>
+                                <div class="w-full overflow-x-hidden">
+                                    <div class="flex gap-2 w-auto flex-wrap">
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">User Research</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Wireframe</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Usability Test</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="group block">
+                        <div class="flex flex-col w-full">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Dashboard UI" class="w-full aspect-video object-cover border border-neutral-200">
+                            <div class="py-6">
+                                <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">SaaS Dashboard</h4>
+                                <div class="w-full overflow-x-hidden">
+                                    <div class="flex gap-2 w-auto flex-wrap">
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Figma</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Auto Layout</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Components</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Row 3: Graphic Design -->
+            <div class="mb-14">
+                <h3 class="text-2xl font-bold font-plusjakarta border-b border-neutral-300 pb-3 mb-8">Graphic Design</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
+                    <a href="#" class="group block">
+                        <div class="flex flex-col w-full">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Branding" class="w-full aspect-video object-cover border border-neutral-200">
+                            <div class="py-6">
+                                <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">Automotive Catalogue</h4>
+                                <div class="w-full overflow-x-hidden">
+                                    <div class="flex gap-2 w-auto flex-wrap">
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">InDesign</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Photoshop</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Photography</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="group block">
+                        <div class="flex flex-col w-full">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="Packaging" class="w-full aspect-video object-cover border border-neutral-200">
+                            <div class="py-6">
+                                <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">Product Packaging</h4>
+                                <div class="w-full overflow-x-hidden">
+                                    <div class="flex gap-2 w-auto flex-wrap">
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Illustrator</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Dimension</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Print</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="group block">
+                        <div class="flex flex-col w-full">
+                            <img src="https://design.google/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fgd-prod%2Fimages%2Fc6dca69b-639d-414d-a40c-b231e15d091b.60c498c559810aa0.webp&w=1920&q=75" alt="3D Model" class="w-full aspect-video object-cover border border-neutral-200">
+                            <div class="py-6">
+                                <h4 class="font-extrabold font-plusjakarta text-2xl mb-4 group-hover:text-blue-700 transition">3D Product Render</h4>
+                                <div class="w-full overflow-x-hidden">
+                                    <div class="flex gap-2 w-auto flex-wrap">
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Blender</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Affinity</span>
+                                        <span class="bg-white border border-neutral-200 rounded-full py-1 px-3 whitespace-nowrap text-sm">Post-Production</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EDUCATION SECTION ===== -->
+        <section class="w-full max-w-6xl mx-auto mb-16">
+            <h2 class="text-4xl font-extrabold mb-12">Education</h2>
+            <div class="border border-neutral-300 bg-white p-8 md:p-14">
+                <div class="flex flex-col md:flex-row justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold font-plusjakarta">SMK Jakarta Pusat 1</h3>
+                        <p class="font-plusjakarta text-lg text-neutral-600">Administrasi Perkantoran</p>
+                    </div>
+                    <span class="font-plusjakarta text-sm text-neutral-500 mt-1 md:mt-0">Jakarta, Indonesia</span>
+                </div>
+                <p class="font-plusjakarta text-neutral-600 leading-relaxed">
+                    Graduated from SMK Jakarta Pusat 1 with a focus on Administrasi Perkantoran (Office Administration), 
+                    where I developed strong organizational, communication, and administrative skills.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS SECTION (SPIDER CHART) ===== -->
+        <section class="w-full max-w-6xl mx-auto mb-16">
+            <h2 class="text-4xl font-extrabold mb-12">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <!-- Software Developer Spider Chart -->
+                <div class="border border-neutral-300 bg-white p-6 md:p-8">
+                    <h3 class="text-xl font-bold font-plusjakarta mb-6 text-center">Software Developer</h3>
+                    <div class="w-full aspect-square max-w-[380px] mx-auto relative">
+                        <canvas id="devChart" width="400" height="400"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm text-center font-plusjakarta text-neutral-600">Laravel · React · Python · Flutter · Node.js · MySQL</div>
+                </div>
+
+                <!-- Graphic Design Spider Chart -->
+                <div class="border border-neutral-300 bg-white p-6 md:p-8">
+                    <h3 class="text-xl font-bold font-plusjakarta mb-6 text-center">Graphic Design</h3>
+                    <div class="w-full aspect-square max-w-[380px] mx-auto relative">
+                        <canvas id="designChart" width="400" height="400"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm text-center font-plusjakarta text-neutral-600">Illustrator · Photoshop · Figma · InDesign · Affinity</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / empty space biar konsisten -->
+        <div class="h-8"></div>
+    </div>
+
+    <!-- Chart.js initialization untuk Spider Charts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Data Software Developer (persentase sesuai permintaan)
+            const devData = {
+                labels: ['Laravel', 'React', 'Python', 'Flutter', 'Node.js', 'MySQL'],
+                datasets: [{
+                    label: 'Proficiency (%)',
+                    data: [87, 65, 54, 72, 60, 80],
+                    backgroundColor: 'rgba(59, 130, 246, 0.25)',
+                    borderColor: 'rgba(37, 99, 235, 0.9)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(30, 64, 175, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverRadius: 6,
+                    pointRadius: 4,
+                }]
+            };
+
+            // Data Graphic Design (Figma 96%, sisanya disebutkan)
+            const designData = {
+                labels: ['Illustrator', 'Photoshop', 'Figma', 'InDesign', 'Affinity'],
+                datasets: [{
+                    label: 'Proficiency (%)',
+                    data: [88, 90, 96, 75, 78],
+                    backgroundColor: 'rgba(236, 72, 153, 0.2)',
+                    borderColor: 'rgba(219, 39, 119, 0.9)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(190, 24, 93, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverRadius: 6,
+                    pointRadius: 4,
+                }]
+            };
+
+            // Konfigurasi umum spider chart
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => `${ctx.raw}%`
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            backdropColor: 'transparent',
+                            font: {
+                                size: 10,
+                                family: '"Plus Jakarta Sans", sans-serif'
+                            },
+                            color: '#475569'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 12,
+                                family: '"Plus Jakarta Sans", sans-serif',
+                                weight: '600'
+                            },
+                            color: '#1e293b'
+                        },
+                        grid: {
+                            color: '#cbd5e1'
+                        },
+                        angleLines: {
+                            color: '#cbd5e1'
+                        }
+                    }
+                }
+            };
+
+            // Render Software Developer Chart
+            const devCtx = document.getElementById('devChart').getContext('2d');
+            new Chart(devCtx, {
+                type: 'radar',
+                data: devData,
+                options: chartOptions
+            });
+
+            // Render Graphic Design Chart
+            const designCtx = document.getElementById('designChart').getContext('2d');
+            new Chart(designCtx, {
+                type: 'radar',
+                data: designData,
+                options: chartOptions
+            });
+        });
+    </script>
+
+</body>
+</html>
